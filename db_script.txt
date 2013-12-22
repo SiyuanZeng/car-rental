@@ -1,0 +1,32 @@
+drop database  vehicle_rental;
+create database vehicle_rental;
+use vehicle_rental;
+
+create table vehicles(
+
+registration_no varchar(10) primary key,
+category varchar(30) not null, 
+manufacturer varchar(30) not null, 
+daily_rent int not null, 
+mileage int not null,
+fuel_type varchar(20) not null, 
+description varchar(100) not null);
+
+insert into vehicles(registration_no,category,manufacturer,fuel_type,mileage,daily_rent,description) values('KA-3324','car','Honda','Petrol',200,50 ,'Brand New');
+insert into vehicles(registration_no,category,manufacturer,fuel_type,mileage,daily_rent,description) values('KA-3344','car','Honda','Petrol',150,20,'Brand New');
+insert into vehicles(registration_no,category,manufacturer,fuel_type,mileage,daily_rent,description) values('KA-1526','Truck','Honda','Petrol',100,100,'Brand New');
+insert into vehicles(registration_no,category,manufacturer,fuel_type,mileage,daily_rent,description) values('KA-6677','Truck','Honda','Diesel',100,120,'Brand New');
+
+create table vehicle_booking(
+	id int primary key auto_increment,
+	customer_name varchar(30) not null,
+	vehicle_category varchar(30) not null,
+	vehicle_reg_no varchar(10) not null,
+	booked_from date not null,
+	booked_to date not null, 
+	total_rent int not null,
+	payment_status varchar(15) not null
+);
+
+/* add new customer*/
+
