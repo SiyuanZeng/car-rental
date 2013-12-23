@@ -12,9 +12,9 @@
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<context:component-scan base-package="com.mindtree.car_rental.domain"/>
+	<context:component-scan base-package="com.mindtree.carrental.domain"/>
 
-	<context:component-scan base-package="com.mindtree.car_rental.repo"/>
+	<context:component-scan base-package="com.mindtree.carrental.repo"/>
 
 	<tx:annotation-driven />
 

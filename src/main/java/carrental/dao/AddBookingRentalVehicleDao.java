@@ -1,7 +1,7 @@
 package carrental.dao;
 
-import carrental.entity.RentalVehicle;
 import carrental.exceptions.DaoException;
+import carrental.model.RentalVehicle;
 
 
 /**

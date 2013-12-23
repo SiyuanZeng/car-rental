@@ -2,9 +2,9 @@ package carrental.dao;
 
 import java.util.List;
 
-import carrental.entity.Vehicle;
 import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
+import carrental.model.Vehicle;
 
 
 /**

@@ -8,8 +8,8 @@ import java.util.List;
 
 import carrental.constants.DbConstants;
 import carrental.dao.GetCategoryDao;
-import carrental.entity.Vehicle;
 import carrental.exceptions.DaoException;
+import carrental.model.Vehicle;
 
 
 

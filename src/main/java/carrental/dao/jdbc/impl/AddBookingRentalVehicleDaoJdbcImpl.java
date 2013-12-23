@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 
 import carrental.constants.DbConstants;
 import carrental.dao.AddBookingRentalVehicleDao;
-import carrental.entity.RentalVehicle;
 import carrental.exceptions.DaoException;
+import carrental.model.RentalVehicle;
 
 
 

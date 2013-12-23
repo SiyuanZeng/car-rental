@@ -1,7 +1,7 @@
 package carrental.dao;
 
-import carrental.entity.Vehicle;
 import carrental.exceptions.DaoException;
+import carrental.model.Vehicle;
 
 
 public interface AddNewVehicleDao {

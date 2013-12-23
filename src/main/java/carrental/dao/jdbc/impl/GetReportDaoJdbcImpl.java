@@ -8,8 +8,8 @@ import java.util.List;
 
 import carrental.constants.DbConstants;
 import carrental.dao.GetReportDao;
-import carrental.entity.ReportEntry;
 import carrental.exceptions.DaoException;
+import carrental.model.ReportEntry;
 
 
 

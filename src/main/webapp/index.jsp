@@ -12,7 +12,7 @@
 <br/> <a href="booking.action">Book a Vehicle</a>
 <br/> <a href="addVehicle.action">Add a Vehicle</a>
 <br/> <a href="reporting.action">Vehicle Booking Report</a>
-
+<br/> <a href="customer.htm">Customer</a>
 </li>
 </ul>
 </body>
