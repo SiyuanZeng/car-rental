@@ -33,8 +33,6 @@ import carrental.model.RentalVehicle;
 import carrental.model.ReportEntry;
 import carrental.model.Vehicle;
 
-
-
 /**
  * @author M1017325
  *

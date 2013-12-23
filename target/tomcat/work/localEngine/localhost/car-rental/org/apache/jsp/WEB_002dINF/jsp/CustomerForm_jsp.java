@@ -104,27 +104,28 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write(".error {\r\n");
       out.write("\tcolor: #ff0000;\r\n");
       out.write("}\r\n");
-      out.write(".errorblock{\r\n");
+      out.write("\r\n");
+      out.write(".errorblock {\r\n");
       out.write("\tcolor: #000;\r\n");
       out.write("\tbackground-color: #ffEEEE;\r\n");
       out.write("\tborder: 3px solid #ff0000;\r\n");
-      out.write("\tpadding:8px;\r\n");
-      out.write("\tmargin:16px;\r\n");
+      out.write("\tpadding: 8px;\r\n");
+      out.write("\tmargin: 16px;\r\n");
       out.write("}\r\n");
-      out.write("\r\n");
       out.write("</style>\r\n");
       out.write("</head>\r\n");
       out.write("\r\n");
       out.write("<body>\r\n");
-      out.write("<h2>Spring's form tags example</h2>\r\n");
+      out.write("\t<h2>Spring's form tags example</h2>\r\n");
       out.write("\r\n");
+      out.write("\t");
       //  form:form
       org.springframework.web.servlet.tags.form.FormTag _jspx_th_form_005fform_005f0 = (org.springframework.web.servlet.tags.form.FormTag) _005fjspx_005ftagPool_005fform_005fform_0026_005fmethod_005fcommandName.get(org.springframework.web.servlet.tags.form.FormTag.class);
       _jspx_th_form_005fform_005f0.setPageContext(_jspx_page_context);
       _jspx_th_form_005fform_005f0.setParent(null);
-      // /WEB-INF/jsp/CustomerForm.jsp(23,0) name = method type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /WEB-INF/jsp/CustomerForm.jsp(23,1) name = method type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_form_005fform_005f0.setMethod("POST");
-      // /WEB-INF/jsp/CustomerForm.jsp(23,0) name = commandName type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /WEB-INF/jsp/CustomerForm.jsp(23,1) name = commandName type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_form_005fform_005f0.setCommandName("customer");
       int[] _jspx_push_body_count_form_005fform_005f0 = new int[] { 0 };
       try {
@@ -133,15 +134,16 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
           do {
             out.write("\r\n");
             out.write("\r\n");
+            out.write("\t\t");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f0 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f0.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(25,0) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(25,2) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f0.setPath("*");
-            // /WEB-INF/jsp/CustomerForm.jsp(25,0) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(25,2) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f0.setCssClass("errorblock");
-            // /WEB-INF/jsp/CustomerForm.jsp(25,0) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(25,2) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f0.setElement("div");
             int[] _jspx_push_body_count_form_005ferrors_005f0 = new int[] { 0 };
             try {
@@ -159,21 +161,21 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
             }
             out.write("\r\n");
             out.write("\r\n");
-            out.write("<table>\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>UserName : </td>\r\n");
-            out.write("<td>");
+            out.write("\t\t<table>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>UserName :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             if (_jspx_meth_form_005finput_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f1 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f1.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(31,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(31,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f1.setPath("userName");
-            // /WEB-INF/jsp/CustomerForm.jsp(31,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(31,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f1.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f1 = new int[] { 0 };
             try {
@@ -190,21 +192,21 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f1);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>Address : </td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t</tr>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>Address :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             if (_jspx_meth_form_005ftextarea_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f2 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f2.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(36,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(36,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f2.setPath("address");
-            // /WEB-INF/jsp/CustomerForm.jsp(36,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(36,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f2.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f2 = new int[] { 0 };
             try {
@@ -221,21 +223,21 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f2);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>Password : </td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t</tr>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>Password :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             if (_jspx_meth_form_005fpassword_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f3 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f3.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(41,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(41,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f3.setPath("password");
-            // /WEB-INF/jsp/CustomerForm.jsp(41,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(41,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f3.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f3 = new int[] { 0 };
             try {
@@ -252,21 +254,21 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f3);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>Confirm Password : </td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t</tr>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>Confirm Password :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             if (_jspx_meth_form_005fpassword_005f1(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f4 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f4.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(46,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(46,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f4.setPath("confirmPassword");
-            // /WEB-INF/jsp/CustomerForm.jsp(46,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(46,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f4.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f4 = new int[] { 0 };
             try {
@@ -283,21 +285,21 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f4);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>Subscribe to newsletter? : </td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t</tr>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>Subscribe to newsletter? :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             if (_jspx_meth_form_005fcheckbox_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f5 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f5.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(51,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(51,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f5.setPath("receiveNewsletter");
-            // /WEB-INF/jsp/CustomerForm.jsp(51,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(51,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f5.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f5 = new int[] { 0 };
             try {
@@ -314,23 +316,21 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f5);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>Favourite Web Frameworks : </td>\r\n");
-            out.write("<td>\r\n");
-            out.write("\t");
+            out.write("\t\t\t</tr>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>Favourite Web Frameworks :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             if (_jspx_meth_form_005fcheckboxes_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write(" \r\n");
             out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f6 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f6.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(58,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(57,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f6.setPath("favFramework");
-            // /WEB-INF/jsp/CustomerForm.jsp(58,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(57,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f6.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f6 = new int[] { 0 };
             try {
@@ -347,25 +347,24 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f6);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>Sex : </td>\r\n");
-            out.write("<td>\r\n");
+            out.write("\t\t\t</tr>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>Sex :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             if (_jspx_meth_form_005fradiobutton_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("Male \r\n");
+            out.write("Male ");
             if (_jspx_meth_form_005fradiobutton_005f1(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("Female \r\n");
-            out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("Female</td>\r\n");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f7 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f7.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(66,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(63,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f7.setPath("sex");
-            // /WEB-INF/jsp/CustomerForm.jsp(66,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(63,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f7.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f7 = new int[] { 0 };
             try {
@@ -382,23 +381,22 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f7);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>Choose a number : </td>\r\n");
-            out.write("<td>\r\n");
-            out.write("\t");
+            out.write("\t\t\t</tr>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>Choose a number :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             if (_jspx_meth_form_005fradiobuttons_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write(" \r\n");
-            out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("\r\n");
+            out.write("\t\t\t\t</td>\r\n");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f8 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f8.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(73,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(69,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f8.setPath("favNumber");
-            // /WEB-INF/jsp/CustomerForm.jsp(73,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(69,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f8.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f8 = new int[] { 0 };
             try {
@@ -415,32 +413,31 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f8);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
+            out.write("\t\t\t</tr>\r\n");
             out.write("\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>Country : </td>\r\n");
-            out.write("<td>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>Country :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             //  form:select
             org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_005fselect_005f0 = (org.springframework.web.servlet.tags.form.SelectTag) _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath.get(org.springframework.web.servlet.tags.form.SelectTag.class);
             _jspx_th_form_005fselect_005f0.setPageContext(_jspx_page_context);
             _jspx_th_form_005fselect_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(79,0) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(74,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005fselect_005f0.setPath("country");
             int[] _jspx_push_body_count_form_005fselect_005f0 = new int[] { 0 };
             try {
               int _jspx_eval_form_005fselect_005f0 = _jspx_th_form_005fselect_005f0.doStartTag();
               if (_jspx_eval_form_005fselect_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
                 do {
-                  out.write('\r');
-                  out.write('\n');
-                  out.write('	');
+                  out.write("\r\n");
+                  out.write("\t\t\t\t\t\t");
                   //  form:option
                   org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f0 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
                   _jspx_th_form_005foption_005f0.setPageContext(_jspx_page_context);
                   _jspx_th_form_005foption_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-                  // /WEB-INF/jsp/CustomerForm.jsp(80,1) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+                  // /WEB-INF/jsp/CustomerForm.jsp(75,6) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
                   _jspx_th_form_005foption_005f0.setValue(new String("NONE"));
-                  // /WEB-INF/jsp/CustomerForm.jsp(80,1) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+                  // /WEB-INF/jsp/CustomerForm.jsp(75,6) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
                   _jspx_th_form_005foption_005f0.setLabel("--- Select ---");
                   int[] _jspx_push_body_count_form_005foption_005f0 = new int[] { 0 };
                   try {
@@ -456,13 +453,12 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
                     _jspx_th_form_005foption_005f0.doFinally();
                     _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.reuse(_jspx_th_form_005foption_005f0);
                   }
-                  out.write('\r');
-                  out.write('\n');
-                  out.write('	');
+                  out.write("\r\n");
+                  out.write("\t\t\t\t\t\t");
                   if (_jspx_meth_form_005foptions_005f0(_jspx_th_form_005fselect_005f0, _jspx_page_context, _jspx_push_body_count_form_005fselect_005f0))
                     return;
-                  out.write('\r');
-                  out.write('\n');
+                  out.write("\r\n");
+                  out.write("\t\t\t\t\t");
                   int evalDoAfterBody = _jspx_th_form_005fselect_005f0.doAfterBody();
                   if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
                     break;
@@ -479,16 +475,15 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _jspx_th_form_005fselect_005f0.doFinally();
               _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath.reuse(_jspx_th_form_005fselect_005f0);
             }
-            out.write("\r\n");
             out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f9 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f9.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(84,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(78,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f9.setPath("country");
-            // /WEB-INF/jsp/CustomerForm.jsp(84,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(78,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f9.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f9 = new int[] { 0 };
             try {
@@ -505,23 +500,22 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f9);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
-            out.write(" \r\n");
-            out.write("<tr>\r\n");
-            out.write("<td>Java Skills : </td>\r\n");
-            out.write("<td>\r\n");
+            out.write("\t\t\t</tr>\r\n");
+            out.write("\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td>Java Skills :</td>\r\n");
+            out.write("\t\t\t\t<td>");
             if (_jspx_meth_form_005fselect_005f1(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
-            out.write("\r\n");
             out.write("</td>\r\n");
-            out.write("<td>");
+            out.write("\t\t\t\t<td>");
             //  form:errors
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f10 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f10.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f10.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/CustomerForm.jsp(92,4) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(85,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f10.setPath("javaSkills");
-            // /WEB-INF/jsp/CustomerForm.jsp(92,4) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/CustomerForm.jsp(85,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f10.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f10 = new int[] { 0 };
             try {
@@ -538,17 +532,20 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
               _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.reuse(_jspx_th_form_005ferrors_005f10);
             }
             out.write("</td>\r\n");
-            out.write("</tr>\r\n");
+            out.write("\t\t\t</tr>\r\n");
             out.write("\r\n");
             out.write("\r\n");
+            out.write("\t\t\t");
             if (_jspx_meth_form_005fhidden_005f0(_jspx_th_form_005fform_005f0, _jspx_page_context, _jspx_push_body_count_form_005fform_005f0))
               return;
             out.write("\r\n");
             out.write("\r\n");
-            out.write("<tr>\r\n");
-            out.write("<td colspan=\"3\"><input type=\"submit\" /></td>\r\n");
-            out.write("</tr>\r\n");
-            out.write("</table>\r\n");
+            out.write("\t\t\t<tr>\r\n");
+            out.write("\t\t\t\t<td colspan=\"3\"><input type=\"submit\" /></td>\r\n");
+            out.write("\t\t\t\t<td><input type=\"button\" value=\"Cancel\"\tonclick=\"javascript:window.location='index.jsp'\"/></td>\r\n");
+            out.write("\t\t\t</tr>\r\n");
+            out.write("\t\t</table>\r\n");
+            out.write("\t");
             int evalDoAfterBody = _jspx_th_form_005fform_005f0.doAfterBody();
             if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
               break;
@@ -589,7 +586,7 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_005finput_005f0 = (org.springframework.web.servlet.tags.form.InputTag) _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
     _jspx_th_form_005finput_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005finput_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(30,4) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(30,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f0.setPath("userName");
     int[] _jspx_push_body_count_form_005finput_005f0 = new int[] { 0 };
     try {
@@ -616,7 +613,7 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.TextareaTag _jspx_th_form_005ftextarea_005f0 = (org.springframework.web.servlet.tags.form.TextareaTag) _005fjspx_005ftagPool_005fform_005ftextarea_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.TextareaTag.class);
     _jspx_th_form_005ftextarea_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005ftextarea_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(35,4) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(35,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005ftextarea_005f0.setPath("address");
     int[] _jspx_push_body_count_form_005ftextarea_005f0 = new int[] { 0 };
     try {
@@ -643,7 +640,7 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.PasswordInputTag _jspx_th_form_005fpassword_005f0 = (org.springframework.web.servlet.tags.form.PasswordInputTag) _005fjspx_005ftagPool_005fform_005fpassword_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.PasswordInputTag.class);
     _jspx_th_form_005fpassword_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fpassword_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(40,4) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(40,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fpassword_005f0.setPath("password");
     int[] _jspx_push_body_count_form_005fpassword_005f0 = new int[] { 0 };
     try {
@@ -670,7 +667,7 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.PasswordInputTag _jspx_th_form_005fpassword_005f1 = (org.springframework.web.servlet.tags.form.PasswordInputTag) _005fjspx_005ftagPool_005fform_005fpassword_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.PasswordInputTag.class);
     _jspx_th_form_005fpassword_005f1.setPageContext(_jspx_page_context);
     _jspx_th_form_005fpassword_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(45,4) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(45,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fpassword_005f1.setPath("confirmPassword");
     int[] _jspx_push_body_count_form_005fpassword_005f1 = new int[] { 0 };
     try {
@@ -697,7 +694,7 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.CheckboxTag _jspx_th_form_005fcheckbox_005f0 = (org.springframework.web.servlet.tags.form.CheckboxTag) _005fjspx_005ftagPool_005fform_005fcheckbox_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.CheckboxTag.class);
     _jspx_th_form_005fcheckbox_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fcheckbox_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(50,4) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(50,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fcheckbox_005f0.setPath("receiveNewsletter");
     int[] _jspx_push_body_count_form_005fcheckbox_005f0 = new int[] { 0 };
     try {
@@ -724,9 +721,9 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.CheckboxesTag _jspx_th_form_005fcheckboxes_005f0 = (org.springframework.web.servlet.tags.form.CheckboxesTag) _005fjspx_005ftagPool_005fform_005fcheckboxes_0026_005fpath_005fitems_005fnobody.get(org.springframework.web.servlet.tags.form.CheckboxesTag.class);
     _jspx_th_form_005fcheckboxes_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fcheckboxes_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(56,1) name = items type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(55,8) name = items type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fcheckboxes_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${webFrameworkList}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/CustomerForm.jsp(56,1) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(55,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fcheckboxes_005f0.setPath("favFramework");
     int[] _jspx_push_body_count_form_005fcheckboxes_005f0 = new int[] { 0 };
     try {
@@ -753,9 +750,9 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.RadioButtonTag _jspx_th_form_005fradiobutton_005f0 = (org.springframework.web.servlet.tags.form.RadioButtonTag) _005fjspx_005ftagPool_005fform_005fradiobutton_0026_005fvalue_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.RadioButtonTag.class);
     _jspx_th_form_005fradiobutton_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fradiobutton_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(63,0) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(61,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fradiobutton_005f0.setPath("sex");
-    // /WEB-INF/jsp/CustomerForm.jsp(63,0) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(61,8) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fradiobutton_005f0.setValue(new String("M"));
     int[] _jspx_push_body_count_form_005fradiobutton_005f0 = new int[] { 0 };
     try {
@@ -782,9 +779,9 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.RadioButtonTag _jspx_th_form_005fradiobutton_005f1 = (org.springframework.web.servlet.tags.form.RadioButtonTag) _005fjspx_005ftagPool_005fform_005fradiobutton_0026_005fvalue_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.RadioButtonTag.class);
     _jspx_th_form_005fradiobutton_005f1.setPageContext(_jspx_page_context);
     _jspx_th_form_005fradiobutton_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(64,0) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(61,54) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fradiobutton_005f1.setPath("sex");
-    // /WEB-INF/jsp/CustomerForm.jsp(64,0) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(61,54) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fradiobutton_005f1.setValue(new String("F"));
     int[] _jspx_push_body_count_form_005fradiobutton_005f1 = new int[] { 0 };
     try {
@@ -811,9 +808,9 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.RadioButtonsTag _jspx_th_form_005fradiobuttons_005f0 = (org.springframework.web.servlet.tags.form.RadioButtonsTag) _005fjspx_005ftagPool_005fform_005fradiobuttons_0026_005fpath_005fitems_005fnobody.get(org.springframework.web.servlet.tags.form.RadioButtonsTag.class);
     _jspx_th_form_005fradiobuttons_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fradiobuttons_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(71,1) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(67,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fradiobuttons_005f0.setPath("favNumber");
-    // /WEB-INF/jsp/CustomerForm.jsp(71,1) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(67,8) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fradiobuttons_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${numberList}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     int[] _jspx_push_body_count_form_005fradiobuttons_005f0 = new int[] { 0 };
     try {
@@ -840,7 +837,7 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.OptionsTag _jspx_th_form_005foptions_005f0 = (org.springframework.web.servlet.tags.form.OptionsTag) _005fjspx_005ftagPool_005fform_005foptions_0026_005fitems_005fnobody.get(org.springframework.web.servlet.tags.form.OptionsTag.class);
     _jspx_th_form_005foptions_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005foptions_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(81,1) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(76,6) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005foptions_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${countryList}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     int[] _jspx_push_body_count_form_005foptions_005f0 = new int[] { 0 };
     try {
@@ -867,11 +864,11 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_005fselect_005f1 = (org.springframework.web.servlet.tags.form.SelectTag) _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath_005fmultiple_005fitems_005fnobody.get(org.springframework.web.servlet.tags.form.SelectTag.class);
     _jspx_th_form_005fselect_005f1.setPageContext(_jspx_page_context);
     _jspx_th_form_005fselect_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(90,0) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(83,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fselect_005f1.setPath("javaSkills");
-    // /WEB-INF/jsp/CustomerForm.jsp(90,0) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(83,8) name = items type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fselect_005f1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${javaSkillsList}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/CustomerForm.jsp(90,0) name = multiple type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(83,8) name = multiple type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fselect_005f1.setMultiple(new String("true"));
     int[] _jspx_push_body_count_form_005fselect_005f1 = new int[] { 0 };
     try {
@@ -898,7 +895,7 @@ public final class CustomerForm_jsp extends org.apache.jasper.runtime.HttpJspBas
     org.springframework.web.servlet.tags.form.HiddenInputTag _jspx_th_form_005fhidden_005f0 = (org.springframework.web.servlet.tags.form.HiddenInputTag) _005fjspx_005ftagPool_005fform_005fhidden_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.HiddenInputTag.class);
     _jspx_th_form_005fhidden_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fhidden_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/CustomerForm.jsp(96,0) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/CustomerForm.jsp(89,3) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fhidden_005f0.setPath("secretValue");
     int[] _jspx_push_body_count_form_005fhidden_005f0 = new int[] { 0 };
     try {

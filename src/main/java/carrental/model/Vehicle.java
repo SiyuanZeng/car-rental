@@ -2,10 +2,8 @@ package carrental.model;
 
 /**
  * @author M1017325
- *
+ * 
  */
-
-
 
 public class Vehicle {
 	private String registrationNumber;
@@ -13,37 +11,78 @@ public class Vehicle {
 	private Integer mileage;
 	private String category;
 	private Integer dailyRent;
+	// hidden value
+	private String secretValue;
+	private String description;
+	private String manufacturer;
+
+	public String getSecretValue() {
+		return secretValue;
+	}
+
+	public void setSecretValue(String secretValue) {
+		this.secretValue = secretValue;
+	}
+
 	public String getRegistrationNumber() {
 		return registrationNumber;
 	}
+
 	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
+
 	public String getFuelType() {
 		return fuelType;
 	}
+
 	public void setFuelType(String fuelType) {
 		this.fuelType = fuelType;
 	}
+
 	public Integer getMileage() {
 		return mileage;
 	}
+
 	public void setMileage(Integer mileage) {
 		this.mileage = mileage;
 	}
+
 	public String getCategory() {
 		return category;
 	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 	public Integer getDailyRent() {
 		return dailyRent;
 	}
+
 	public void setDailyRent(Integer dailyRent) {
 		this.dailyRent = dailyRent;
 	}
-	/* (non-Javadoc)
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getManufacturer() {
+		return manufacturer;
+	}
+
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -63,7 +102,10 @@ public class Vehicle {
 						.hashCode());
 		return result;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -115,7 +157,10 @@ public class Vehicle {
 		}
 		return true;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -124,6 +169,5 @@ public class Vehicle {
 				+ ", fuelType=" + fuelType + ", mileage=" + mileage
 				+ ", registrationNumber=" + registrationNumber + "]";
 	}
-	
 
 }

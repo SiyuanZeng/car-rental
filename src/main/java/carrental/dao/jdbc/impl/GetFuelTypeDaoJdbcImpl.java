@@ -35,6 +35,7 @@ public class GetFuelTypeDaoJdbcImpl extends BaseDaoJdbcImpl implements GetFuelTy
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(),e);
 		}
+		System.out.println(vehicle);
 		return vehicle;
 	}
 

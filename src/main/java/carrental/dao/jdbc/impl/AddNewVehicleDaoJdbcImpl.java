@@ -23,9 +23,11 @@ public class AddNewVehicleDaoJdbcImpl extends BaseDaoJdbcImpl implements
 			pst=con.prepareStatement(DbConstants.ADD_VEHICLE);
 			pst.setString(1, v.getRegistrationNumber());
 			pst.setString(2, v.getFuelType());
-			pst.setInt(3, v.getMileage());
-			pst.setString(4, v.getCategory());
-			pst.setInt(5,v.getDailyRent());
+			pst.setString(3, v.getManufacturer());
+			pst.setInt(4, v.getMileage());
+			pst.setString(5, v.getCategory());
+			pst.setInt(6,v.getDailyRent());
+			pst.setString(7,v.getDescription());
 			
 			pst.executeUpdate();
 			System.out.println("Data added");

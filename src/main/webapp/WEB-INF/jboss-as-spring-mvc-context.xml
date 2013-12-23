@@ -17,7 +17,7 @@
 	</bean>
 
 	<bean class="carrental.validator.CustomerValidator" />
-
+	<bean class="carrental.validator.VehicleValidator" />
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />

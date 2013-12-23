@@ -16,7 +16,12 @@
 		<property name="basename" value="carrental/properties/Customer" />
 	</bean>
 
+<!--Validator-->
 	<bean class="carrental.validator.CustomerValidator" />
+	<bean class="carrental.validator.VehicleValidator" />
+	
+<!--END Validator-->
+
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

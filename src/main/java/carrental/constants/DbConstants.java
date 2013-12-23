@@ -6,8 +6,8 @@ public class DbConstants {
 	"(customer_name,vehicle_category,vehicle_reg_no," +
 	"booked_from,booked_to, total_rent, payment_status) values(?,?,?,?,?,?,?)";
 	public static final String ADD_VEHICLE="insert into vehicles" +
-	"(registration_no,fuel_type,mileage," +
-	"category,daily_rent) values(?,?,?,?,?)";
+	"(registration_no,fuel_type,manufacturer,mileage," +
+	"category,daily_rent, description) values(?,?,?,?,?,?,?)";
 	public static final String GET_CATEGORY="select registration_no,category,daily_rent from vehicles";
 	public static final String GET_FUEL_TYPE="select fuel_type from vehicles";
 	public static final String GET_REG_NO="select registration_no from vehicles where category=?";
