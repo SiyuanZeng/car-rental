@@ -13,8 +13,9 @@
 <br/> <a href="addVehicle.action">Add a Vehicle</a>
 <br/> <a href="reporting.action">Vehicle Booking Report</a>
 <br/> <a href="customer.htm">Customer</a>
-<br/> <a href="vehicle.htm">VehicleController</a>
-<br/> <a href="vehicleRental.htm">VehicleRentalController</a>
+<br/> <a href="vehicle.htm">Vehicle Controller</a>
+<br/> <a href="vehicleRental.htm">Vehicle Rental Controller</a>
+<br/> <a href="vehicleRentalReport.htm">Vehicle Rental Report Controller</a>
 </li>
 </ul>
 </body>

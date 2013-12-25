@@ -24,7 +24,7 @@ public class GetReportDaoJdbcImpl extends BaseDaoJdbcImpl implements GetReportDa
 	Connection con=null;
 	Statement st=null;
 	ResultSet rs=null;
-	
+
 	@Override
 	public List<ReportEntry> getReport() throws DaoException {
 		List<ReportEntry> reportList=new ArrayList<ReportEntry>();
@@ -47,5 +47,6 @@ public class GetReportDaoJdbcImpl extends BaseDaoJdbcImpl implements GetReportDa
 		}
 		return reportList;
 	}
+
 
 }
