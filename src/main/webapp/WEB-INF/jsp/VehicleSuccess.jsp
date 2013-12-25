@@ -5,7 +5,6 @@
 <body>
 	<h2>Successfully add a new vehicle</h2>
 
-
 	<table>
 		<tr>
 			<td>RegistrationNumber :</td>

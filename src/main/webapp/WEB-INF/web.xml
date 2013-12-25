@@ -14,34 +14,34 @@
     <servlet-name>FrontController</servlet-name>
     <url-pattern>*.action</url-pattern>
   </servlet-mapping>
-  
-  
+
+
   <!-- Customer Contoller  -->
   <servlet>
   	<servlet-name>jboss-as-spring-mvc-context</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    
+
     <load-on-startup>1</load-on-startup>
     <!-- load-on-startup can specify an (optional) integer value. If the value is 0 or greater, it indicates an order for servlets to be loaded, servlets with higher numbers get loaded after servlets with lower numbers. -->
   </servlet>
-  
+
    <servlet-mapping>
  	<servlet-name>jboss-as-spring-mvc-context</servlet-name>
-    <url-pattern>*.htm</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
-  
+
+
    <context-param>
 	<param-name>contextConfigLocation</param-name>
 	<param-value>/WEB-INF/jboss-as-spring-mvc-context.xml</param-value>
   </context-param>
-  
+
    <listener>
     <listener-class>
       org.springframework.web.context.ContextLoaderListener
     </listener-class>
     <!-- to load spring context xml -->
-    
+
   </listener>
 
 
@@ -59,7 +59,7 @@
 
 
   <!-- Customer Contoller  -->
-  
-  
-  
+
+
+
 </web-app>

@@ -21,7 +21,6 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import carrental.model.Customer;
 import carrental.validator.CustomerValidator;
-import carrental.validator.VehicleValidator;
 
 @Controller
 @RequestMapping("/customer.htm")

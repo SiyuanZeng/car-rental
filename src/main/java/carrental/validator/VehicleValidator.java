@@ -19,36 +19,36 @@ public class VehicleValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "registrationNumber",
-				"required.registrationNumber",
+				"vehicle.required.registrationNumber",
 				"Registration Number is required!");
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "category",
-				"required.category", "Category is required.");
+				"vehicle.required.category", "Category is required.");
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "fuelType",
-				"required.fuelType", "Fuel Type is required!");
+				"vehicle.required.fuelType", "Fuel Type is required!");
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "manufacturer",
-				"required.manufacturer", "Manufacturer is required!");
+				"vehicle.required.manufacturer", "Manufacturer is required!");
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dailyRent",
-				"required.dailyRent", "Daily Rent is required!");
+				"vehicle.required.dailyRent", "Daily Rent is required!");
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mileage",
-				"required.mileage", "Mileage is required!");
+				"vehicle.required.mileage", "Mileage is required!");
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description",
-				"required.description", "Description is required!");
+				"vehicle.required.description", "Description is required!");
 
 		Vehicle vehi = (Vehicle) target;
 
 		// how to validate numbers?
 		if ("NONE".equals(vehi.getFuelType())) {
-			errors.rejectValue("fuelType", "required.fuelType");
+			errors.rejectValue("fuelType", "vehicle.required.fuelType");
 		}
 
 		if ("NONE".equals(vehi.getCategory())) {
-			errors.rejectValue("category", "required.category");
+			errors.rejectValue("category", "vehicle.required.category");
 		}
 
 	}

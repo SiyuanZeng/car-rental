@@ -57,7 +57,6 @@ public final class VehicleSuccess_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("<body>\r\n");
       out.write("\t<h2>Successfully add a new vehicle</h2>\r\n");
       out.write("\r\n");
-      out.write("\r\n");
       out.write("\t<table>\r\n");
       out.write("\t\t<tr>\r\n");
       out.write("\t\t\t<td>RegistrationNumber :</td>\r\n");

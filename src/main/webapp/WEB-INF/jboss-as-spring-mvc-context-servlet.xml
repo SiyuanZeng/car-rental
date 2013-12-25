@@ -11,15 +11,15 @@
 	<mvc:annotation-driven />
 
 	<!-- Register the Customer.properties -->
-	<bean id="messageSource"
+		<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="carrental/properties/Customer" />
+		<property name="basenames" value="carrental/properties/Customer, carrental/properties/Vehicle, carrental/properties/VehicleRental" />
 	</bean>
 
-<!--Validator-->
 	<bean class="carrental.validator.CustomerValidator" />
 	<bean class="carrental.validator.VehicleValidator" />
-	
+	<bean class="carrental.validator.VehicleRentalValidator" />
+
 <!--END Validator-->
 
 

@@ -14,6 +14,7 @@
 <br/> <a href="reporting.action">Vehicle Booking Report</a>
 <br/> <a href="customer.htm">Customer</a>
 <br/> <a href="vehicle.htm">VehicleController</a>
+<br/> <a href="vehicleRental.htm">VehicleRentalController</a>
 </li>
 </ul>
 </body>

@@ -3,7 +3,7 @@ package org.apache.jsp.WEB_002dINF.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import carrental.entity.ReportEntry;
+import carrental.model.ReportEntry;
 import java.util.List;
 
 public final class reportVehicleBooking_jsp extends org.apache.jasper.runtime.HttpJspBase

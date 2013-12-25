@@ -13,15 +13,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import carrental.dao.AddBookingRentalVehicleDao;
 import carrental.dao.AddNewVehicleDao;
+import carrental.dao.AddVehicleRentalDao;
 import carrental.dao.GetCategoryDao;
 import carrental.dao.GetFuelTypeDao;
 import carrental.dao.GetRegNoDao;
 import carrental.dao.GetRentDao;
 import carrental.dao.GetReportDao;
-import carrental.dao.jdbc.impl.AddBookingRentalVehicleDaoJdbcImpl;
 import carrental.dao.jdbc.impl.AddNewVehicleDaoJdbcImpl;
+import carrental.dao.jdbc.impl.AddVehicleRentalDaoJdbcImpl;
 import carrental.dao.jdbc.impl.GetCategoryDaoJdbcImpl;
 import carrental.dao.jdbc.impl.GetFuelTypeDaoJdbcImpl;
 import carrental.dao.jdbc.impl.GetRegNoDaoJdbcImpl;
@@ -29,9 +29,9 @@ import carrental.dao.jdbc.impl.GetRentaoJdbcImpl;
 import carrental.dao.jdbc.impl.GetReportDaoJdbcImpl;
 import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
-import carrental.model.RentalVehicle;
 import carrental.model.ReportEntry;
 import carrental.model.Vehicle;
+import carrental.model.VehicleRental;
 
 /**
  * @author M1017325
@@ -159,7 +159,6 @@ public class FrontController extends HttpServlet {
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private void addBookingVehicleAction(HttpServletRequest request,
@@ -186,7 +185,7 @@ public class FrontController extends HttpServlet {
 				paymentStatus = "unpaid";
 
 			}
-			RentalVehicle r = new RentalVehicle();
+			VehicleRental r = new VehicleRental();
 			r.setCustomerName(custName);
 			r.setCategory(category);
 			r.setRegistrationNumber(regNo);
@@ -194,8 +193,8 @@ public class FrontController extends HttpServlet {
 			r.setBookedTo(bookedTo);
 			r.setTotalRent(totalRent);
 			r.setPaymentStatus(paymentStatus);
-			AddBookingRentalVehicleDao dao = new AddBookingRentalVehicleDaoJdbcImpl();
-			dao.addRentalVehicle(r);
+			AddVehicleRentalDao dao = new AddVehicleRentalDaoJdbcImpl();
+			dao.addVehicleRental(r);
 			System.out.println("Data Added");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -226,6 +225,7 @@ public class FrontController extends HttpServlet {
 			vehicle.setFuelType(fuelType);
 			vehicle.setMileage(Integer.parseInt(mileage));
 			vehicle.setRegistrationNumber(registrationNumber);
+			vehicle.setDescription(description);
 
 			AddNewVehicleDao dao = new AddNewVehicleDaoJdbcImpl();
 			dao.addNewVehicle(vehicle);
