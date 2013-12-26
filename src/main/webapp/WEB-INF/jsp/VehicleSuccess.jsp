@@ -35,7 +35,7 @@
 			<td>${vehicle.description}</td>
 		</tr>
 		<tr>
-			<td><input type="button" value="Return"	onclick="javascript:window.location='index.jsp'"/></td>
+			<td><input type="button" value="Return"	onclick="javascript:window.location='welcome'"/></td>
 		</tr>
 	</table>
 </body>

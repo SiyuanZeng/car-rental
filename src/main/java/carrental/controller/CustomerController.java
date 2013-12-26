@@ -35,11 +35,11 @@ public class CustomerController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String processSubmit(@ModelAttribute("customer") Customer customer,
-			BindingResult result, SessionStatus status) {
+			BindingResult bindingResult, SessionStatus status) {
 
-		customerValidator.validate(customer, result);
+		customerValidator.validate(customer, bindingResult);
 
-		if (result.hasErrors()) {
+		if (bindingResult.hasErrors()) {
 			// if validator failed
 			return "CustomerForm";
 		} else {
@@ -75,7 +75,7 @@ public class CustomerController {
 	@ModelAttribute("webFrameworkList")
 	public List<String> populateWebFrameworkList() {
 
-		// Data referencing for web framework checkboxes
+		// Data referencing for com.mindtree.web framework checkboxes
 		List<String> webFrameworkList = new ArrayList<String>();
 		webFrameworkList.add("Spring MVC");
 		webFrameworkList.add("Struts 1");

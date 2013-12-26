@@ -142,7 +142,7 @@
 			<tr>
 				<td><input type="submit" value="Save"></input></td>
 				<td><input type="button" value="Cancel"
-					onclick="javascript:window.location='index.jsp'" /></td>
+					onclick="javascript:window.location='welcome'" /></td>
 			</tr>
 
 		</table>

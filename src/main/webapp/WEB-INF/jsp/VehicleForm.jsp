@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
 <style>
@@ -77,7 +78,7 @@
 			<tr>
 				<td colspan="3"><input type="submit" /></td>
 				<td><input type="button" value="Cancel"
-					onclick="javascript:window.location='index.jsp'" /></td>
+					onCLick="history.back()" /></td>
 			</tr>
 		</table>
 	</form:form>

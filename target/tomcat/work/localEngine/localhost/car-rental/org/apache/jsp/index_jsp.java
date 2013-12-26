@@ -11,6 +11,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody;
+
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
 
@@ -19,11 +21,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
+    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
   }
 
   public void _jspDestroy() {
+    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -51,6 +55,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
 
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
@@ -59,15 +64,17 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\r\n");
       out.write("<body>\r\n");
       out.write("<ul>\r\n");
-      out.write("<li>\r\n");
-      out.write("<br/> <a href=\"booking.action\">Book a Vehicle</a>\r\n");
-      out.write("<br/> <a href=\"addVehicle.action\">Add a Vehicle</a>\r\n");
-      out.write("<br/> <a href=\"reporting.action\">Vehicle Booking Report</a>\r\n");
-      out.write("<br/> <a href=\"customer.htm\">Customer</a>\r\n");
-      out.write("<br/> <a href=\"vehicle.htm\">Vehicle Controller</a>\r\n");
-      out.write("<br/> <a href=\"vehicleRental.htm\">Vehicle Rental Controller</a>\r\n");
-      out.write("<br/> <a href=\"vehicleRentalReport.htm\">Vehicle Rental Report Controller</a>\r\n");
-      out.write("</li>\r\n");
+      out.write("<li><a href=\"booking.action\">Book a Vehicle</a></li>\r\n");
+      out.write("<li><a href=\"addVehicle.action\">Add a Vehicle</a></li>\r\n");
+      out.write("<li> <a href=\"reporting.action\">Vehicle Booking Report</a></li>\r\n");
+      out.write("<li><a href=\"customer.htm\">Customer</a></li>\r\n");
+      out.write("<li> <a href=\"vehicle.htm\">Vehicle Controller</a></li>\r\n");
+      out.write("<li><a href=\"vehicleRental.htm\">Vehicle Rental Controller</a></li>\r\n");
+      out.write("<li><a href=\"vehicleRentalReport.htm\">Vehicle Rental Report Controller</a></li>\r\n");
+      out.write(" <a href=\"");
+      if (_jspx_meth_c_005furl_005f0(_jspx_page_context))
+        return;
+      out.write("\"> Logout</a>\r\n");
       out.write("</ul>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
@@ -81,5 +88,24 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_005furl_005f0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:url
+    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
+    _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_c_005furl_005f0.setParent(null);
+    // /index.jsp(19,10) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f0.setValue("/j_spring_security_logout");
+    int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
+    if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f0);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f0);
+    return false;
   }
 }
