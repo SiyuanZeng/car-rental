@@ -75,6 +75,21 @@ public final class VehicleRentalReport_jsp extends org.apache.jasper.runtime.Htt
       out.write("\t\t<h1>Vehicle Rental Application ---- Vehicle booking report</h1>\r\n");
       out.write("\t</center>\r\n");
       out.write("\t<hr />\r\n");
+      out.write("\t\t<h3>\r\n");
+      out.write("\t\t");
+
+		//allow access only if session exists
+		String user = null;
+		if (session.getAttribute("user") == null) {
+			response.sendRedirect("login.html");
+		} else
+			user = (String) session.getAttribute("user");
+	
+      out.write("\r\n");
+      out.write("\t\tUsername :\r\n");
+      out.write("\t\t");
+      out.print(user);
+      out.write("</h3>\r\n");
       out.write("\t<form>\r\n");
       out.write("\t\t<table border=\"1\">\r\n");
       out.write("\t\t\t<tr>\r\n");
@@ -114,9 +129,9 @@ public final class VehicleRentalReport_jsp extends org.apache.jasper.runtime.Htt
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /WEB-INF/jsp/VehicleRentalReport.jsp(30,4) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleRentalReport.jsp(41,4) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${requestScope.reportList}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/VehicleRentalReport.jsp(30,4) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleRentalReport.jsp(41,4) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("reportList");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {

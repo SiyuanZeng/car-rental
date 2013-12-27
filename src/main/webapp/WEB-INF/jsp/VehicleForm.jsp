@@ -1,5 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+	pageEncoding="US-ASCII"%>
 
 <html>
 <head>
@@ -19,7 +21,37 @@
 </head>
 
 <body>
-	<h2>Spring's form tags example</h2>
+
+
+	<center>
+		<h2>Add a New Vehicle</h2>
+	</center>
+	<h3>
+		<%
+			//allow access only if session exists
+			String user = null;
+			if (session.getAttribute("user") == null) {
+				response.sendRedirect("login.html");
+			} else
+				user = (String) session.getAttribute("user");
+			String userName = null;
+			String sessionID = null;
+			Cookie[] cookies = request.getCookies();
+			if (cookies != null) {
+				for (Cookie cookie : cookies) {
+					if (cookie.getName().equals("user"))
+						userName = cookie.getValue();
+					if (cookie.getName().equals("JSESSIONID"))
+						sessionID = cookie.getValue();
+			}
+			}
+		%>
+		Username :<%=user%>
+	</h3>
+
+	<h3>
+		Hello,
+		<%=userName%>, Login successful. Your Session ID=<%=sessionID%></h3>
 
 	<form:form method="POST" commandName="vehicle">
 

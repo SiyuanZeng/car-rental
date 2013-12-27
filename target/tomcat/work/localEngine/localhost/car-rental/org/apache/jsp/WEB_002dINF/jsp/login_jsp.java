@@ -72,11 +72,38 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</style>\r\n");
       out.write("</head>\r\n");
       out.write("<body onload='document.f.j_username.focus();'>\r\n");
+      out.write("\t<center>\r\n");
       out.write("\t<h3>Login with Username and Password (Custom Page)</h3>\r\n");
+      out.write("\t");
+
+		//allow access only if session exists
+		String user = null;
+		if (session.getAttribute("user") != null)
+			user = (String) session.getAttribute("user");
+		String userName = null;
+		String sessionID = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("user"))
+					userName = cookie.getValue();
+				if (cookie.getName().equals("JSESSIONID"))
+					sessionID = cookie.getValue();
+			}
+		}
+	
+      out.write("\r\n");
+      out.write("\tWelcome, ");
+      out.print(userName);
+      out.write(" !\r\n");
+      out.write("\r\n");
+      out.write("\t</br>\r\n");
+      out.write("\t</br>\r\n");
       out.write("\r\n");
       out.write("\t");
       if (_jspx_meth_c_005fif_005f0(_jspx_page_context))
         return;
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\t<form name='f' action=\"");
@@ -88,26 +115,23 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t<table>\r\n");
       out.write("\t\t\t<tr>\r\n");
       out.write("\t\t\t\t<td>User:</td>\r\n");
-      out.write("\t\t\t\t<td><input type='text' name='j_username' value=''>\r\n");
-      out.write("\t\t\t\t</td>\r\n");
+      out.write("\t\t\t\t<td><input type='text' name='j_username' value=''></td>\r\n");
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t\t<tr>\r\n");
       out.write("\t\t\t\t<td>Password:</td>\r\n");
-      out.write("\t\t\t\t<td><input type='password' name='j_password' />\r\n");
-      out.write("\t\t\t\t</td>\r\n");
+      out.write("\t\t\t\t<td><input type='password' name='j_password' /></td>\r\n");
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t<td colspan='2'><input name=\"submit\" type=\"submit\"\r\n");
-      out.write("\t\t\t\t\tvalue=\"submit\" />\r\n");
-      out.write("\t\t\t\t</td>\r\n");
+      out.write("\t\t\t\t<td><input name=\"submit\" type=\"submit\"\r\n");
+      out.write("\t\t\t\t\tvalue=\"submit\" /></td>\r\n");
+      out.write("\t\t\t\t<td><input name=\"reset\" type=\"reset\" /></td>\r\n");
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t<td colspan='2'><input name=\"reset\" type=\"reset\" />\r\n");
-      out.write("\t\t\t\t</td>\r\n");
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t</table>\r\n");
       out.write("\r\n");
       out.write("\t</form>\r\n");
+      out.write("\t</center>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -130,7 +154,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_005fif_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fif_005f0.setParent(null);
-    // /WEB-INF/jsp/login.jsp(18,1) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/login.jsp(40,1) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${not empty error}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -164,7 +188,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f0.setParent(null);
-    // /WEB-INF/jsp/login.jsp(25,24) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/login.jsp(48,24) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f0.setValue("j_spring_security_check");
     int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
     if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

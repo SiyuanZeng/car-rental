@@ -18,6 +18,17 @@
 		<h1>Vehicle Rental Application ---- Vehicle booking report</h1>
 	</center>
 	<hr />
+		<h3>
+		<%
+		//allow access only if session exists
+		String user = null;
+		if (session.getAttribute("user") == null) {
+			response.sendRedirect("login.html");
+		} else
+			user = (String) session.getAttribute("user");
+	%>
+		Username :
+		<%=user%></h3>
 	<form>
 		<table border="1">
 			<tr>

@@ -101,8 +101,18 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<h2>Rent a Vehicle</h2>
-
+	<center><h2>Rent a Vehicle</h2></center>
+	<h3>
+		<%
+		//allow access only if session exists
+		String user = null;
+		if (session.getAttribute("user") == null) {
+			response.sendRedirect("login.html");
+		} else
+			user = (String) session.getAttribute("user");
+	%>
+		Username :
+		<%=user%></h3>
 	<form:form method="POST" name="vehicleRental" commandName="vehicleRental">
 
 		<form:errors path="*" cssClass="errorblock" element="div" />

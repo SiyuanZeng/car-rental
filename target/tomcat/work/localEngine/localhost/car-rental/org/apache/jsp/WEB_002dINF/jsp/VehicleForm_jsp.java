@@ -68,7 +68,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html; charset=US-ASCII");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -78,6 +78,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
+      out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
@@ -99,16 +100,54 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\r\n");
       out.write("\r\n");
       out.write("<body>\r\n");
-      out.write("\t<h2>Spring's form tags example</h2>\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("\t<center>\r\n");
+      out.write("\t\t<h2>Add a New Vehicle</h2>\r\n");
+      out.write("\t</center>\r\n");
+      out.write("\t<h3>\r\n");
+      out.write("\t\t");
+
+			//allow access only if session exists
+			String user = null;
+			if (session.getAttribute("user") == null) {
+				response.sendRedirect("login.html");
+			} else
+				user = (String) session.getAttribute("user");
+			String userName = null;
+			String sessionID = null;
+			Cookie[] cookies = request.getCookies();
+			if (cookies != null) {
+				for (Cookie cookie : cookies) {
+					if (cookie.getName().equals("user"))
+						userName = cookie.getValue();
+					if (cookie.getName().equals("JSESSIONID"))
+						sessionID = cookie.getValue();
+			}
+			}
+		
+      out.write("\r\n");
+      out.write("\t\tUsername :");
+      out.print(user);
+      out.write("\r\n");
+      out.write("\t</h3>\r\n");
+      out.write("\r\n");
+      out.write("\t<h3>\r\n");
+      out.write("\t\tHello,\r\n");
+      out.write("\t\t");
+      out.print(userName);
+      out.write(", Login successful. Your Session ID=");
+      out.print(sessionID);
+      out.write("</h3>\r\n");
       out.write("\r\n");
       out.write("\t");
       //  form:form
       org.springframework.web.servlet.tags.form.FormTag _jspx_th_form_005fform_005f0 = (org.springframework.web.servlet.tags.form.FormTag) _005fjspx_005ftagPool_005fform_005fform_0026_005fmethod_005fcommandName.get(org.springframework.web.servlet.tags.form.FormTag.class);
       _jspx_th_form_005fform_005f0.setPageContext(_jspx_page_context);
       _jspx_th_form_005fform_005f0.setParent(null);
-      // /WEB-INF/jsp/VehicleForm.jsp(24,1) name = method type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /WEB-INF/jsp/VehicleForm.jsp(56,1) name = method type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_form_005fform_005f0.setMethod("POST");
-      // /WEB-INF/jsp/VehicleForm.jsp(24,1) name = commandName type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+      // /WEB-INF/jsp/VehicleForm.jsp(56,1) name = commandName type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
       _jspx_th_form_005fform_005f0.setCommandName("vehicle");
       int[] _jspx_push_body_count_form_005fform_005f0 = new int[] { 0 };
       try {
@@ -122,11 +161,11 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f0 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005felement_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f0.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(26,2) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(58,2) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f0.setPath("*");
-            // /WEB-INF/jsp/VehicleForm.jsp(26,2) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(58,2) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f0.setCssClass("errorblock");
-            // /WEB-INF/jsp/VehicleForm.jsp(26,2) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(58,2) name = element type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f0.setElement("div");
             int[] _jspx_push_body_count_form_005ferrors_005f0 = new int[] { 0 };
             try {
@@ -156,9 +195,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f1 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f1.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(32,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(64,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f1.setPath("registrationNumber");
-            // /WEB-INF/jsp/VehicleForm.jsp(32,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(64,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f1.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f1 = new int[] { 0 };
             try {
@@ -183,7 +222,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_005fselect_005f0 = (org.springframework.web.servlet.tags.form.SelectTag) _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath.get(org.springframework.web.servlet.tags.form.SelectTag.class);
             _jspx_th_form_005fselect_005f0.setPageContext(_jspx_page_context);
             _jspx_th_form_005fselect_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(36,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(68,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005fselect_005f0.setPath("category");
             int[] _jspx_push_body_count_form_005fselect_005f0 = new int[] { 0 };
             try {
@@ -196,9 +235,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
                   org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f0 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
                   _jspx_th_form_005foption_005f0.setPageContext(_jspx_page_context);
                   _jspx_th_form_005foption_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-                  // /WEB-INF/jsp/VehicleForm.jsp(37,6) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+                  // /WEB-INF/jsp/VehicleForm.jsp(69,6) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
                   _jspx_th_form_005foption_005f0.setValue(new String("NONE"));
-                  // /WEB-INF/jsp/VehicleForm.jsp(37,6) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+                  // /WEB-INF/jsp/VehicleForm.jsp(69,6) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
                   _jspx_th_form_005foption_005f0.setLabel("--- Select ---");
                   int[] _jspx_push_body_count_form_005foption_005f0 = new int[] { 0 };
                   try {
@@ -242,9 +281,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f2 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f2.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(42,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(74,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f2.setPath("category");
-            // /WEB-INF/jsp/VehicleForm.jsp(42,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(74,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f2.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f2 = new int[] { 0 };
             try {
@@ -269,7 +308,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.SelectTag _jspx_th_form_005fselect_005f1 = (org.springframework.web.servlet.tags.form.SelectTag) _005fjspx_005ftagPool_005fform_005fselect_0026_005fpath.get(org.springframework.web.servlet.tags.form.SelectTag.class);
             _jspx_th_form_005fselect_005f1.setPageContext(_jspx_page_context);
             _jspx_th_form_005fselect_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(46,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(78,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005fselect_005f1.setPath("fuelType");
             int[] _jspx_push_body_count_form_005fselect_005f1 = new int[] { 0 };
             try {
@@ -282,9 +321,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
                   org.springframework.web.servlet.tags.form.OptionTag _jspx_th_form_005foption_005f1 = (org.springframework.web.servlet.tags.form.OptionTag) _005fjspx_005ftagPool_005fform_005foption_0026_005fvalue_005flabel_005fnobody.get(org.springframework.web.servlet.tags.form.OptionTag.class);
                   _jspx_th_form_005foption_005f1.setPageContext(_jspx_page_context);
                   _jspx_th_form_005foption_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f1);
-                  // /WEB-INF/jsp/VehicleForm.jsp(47,6) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+                  // /WEB-INF/jsp/VehicleForm.jsp(79,6) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
                   _jspx_th_form_005foption_005f1.setValue(new String("NONE"));
-                  // /WEB-INF/jsp/VehicleForm.jsp(47,6) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+                  // /WEB-INF/jsp/VehicleForm.jsp(79,6) name = label type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
                   _jspx_th_form_005foption_005f1.setLabel("--- Select ---");
                   int[] _jspx_push_body_count_form_005foption_005f1 = new int[] { 0 };
                   try {
@@ -328,9 +367,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f3 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f3.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(52,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(84,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f3.setPath("fuelType");
-            // /WEB-INF/jsp/VehicleForm.jsp(52,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(84,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f3.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f3 = new int[] { 0 };
             try {
@@ -359,9 +398,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f4 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f4.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(57,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(89,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f4.setPath("manufacturer");
-            // /WEB-INF/jsp/VehicleForm.jsp(57,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(89,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f4.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f4 = new int[] { 0 };
             try {
@@ -390,9 +429,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f5 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f5.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(62,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(94,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f5.setPath("dailyRent");
-            // /WEB-INF/jsp/VehicleForm.jsp(62,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(94,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f5.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f5 = new int[] { 0 };
             try {
@@ -421,9 +460,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f6 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f6.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(67,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(99,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f6.setPath("mileage");
-            // /WEB-INF/jsp/VehicleForm.jsp(67,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(99,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f6.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f6 = new int[] { 0 };
             try {
@@ -452,9 +491,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
             org.springframework.web.servlet.tags.form.ErrorsTag _jspx_th_form_005ferrors_005f7 = (org.springframework.web.servlet.tags.form.ErrorsTag) _005fjspx_005ftagPool_005fform_005ferrors_0026_005fpath_005fcssClass_005fnobody.get(org.springframework.web.servlet.tags.form.ErrorsTag.class);
             _jspx_th_form_005ferrors_005f7.setPageContext(_jspx_page_context);
             _jspx_th_form_005ferrors_005f7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-            // /WEB-INF/jsp/VehicleForm.jsp(72,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(104,8) name = path type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f7.setPath("description");
-            // /WEB-INF/jsp/VehicleForm.jsp(72,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+            // /WEB-INF/jsp/VehicleForm.jsp(104,8) name = cssClass type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
             _jspx_th_form_005ferrors_005f7.setCssClass("error");
             int[] _jspx_push_body_count_form_005ferrors_005f7 = new int[] { 0 };
             try {
@@ -526,7 +565,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_005finput_005f0 = (org.springframework.web.servlet.tags.form.InputTag) _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
     _jspx_th_form_005finput_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005finput_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/VehicleForm.jsp(31,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(63,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f0.setPath("registrationNumber");
     int[] _jspx_push_body_count_form_005finput_005f0 = new int[] { 0 };
     try {
@@ -553,9 +592,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f0);
-    // /WEB-INF/jsp/VehicleForm.jsp(38,6) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(70,6) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${categoryList}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/VehicleForm.jsp(38,6) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(70,6) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("c");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
@@ -597,9 +636,9 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fselect_005f1);
-    // /WEB-INF/jsp/VehicleForm.jsp(48,6) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(80,6) name = items type = java.lang.Object reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${fuelTypeList}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
-    // /WEB-INF/jsp/VehicleForm.jsp(48,6) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(80,6) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f1.setVar("f");
     int[] _jspx_push_body_count_c_005fforEach_005f1 = new int[] { 0 };
     try {
@@ -641,7 +680,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_005finput_005f1 = (org.springframework.web.servlet.tags.form.InputTag) _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
     _jspx_th_form_005finput_005f1.setPageContext(_jspx_page_context);
     _jspx_th_form_005finput_005f1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/VehicleForm.jsp(56,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(88,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f1.setPath("manufacturer");
     int[] _jspx_push_body_count_form_005finput_005f1 = new int[] { 0 };
     try {
@@ -668,7 +707,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_005finput_005f2 = (org.springframework.web.servlet.tags.form.InputTag) _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
     _jspx_th_form_005finput_005f2.setPageContext(_jspx_page_context);
     _jspx_th_form_005finput_005f2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/VehicleForm.jsp(61,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(93,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f2.setPath("dailyRent");
     int[] _jspx_push_body_count_form_005finput_005f2 = new int[] { 0 };
     try {
@@ -695,7 +734,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.form.InputTag _jspx_th_form_005finput_005f3 = (org.springframework.web.servlet.tags.form.InputTag) _005fjspx_005ftagPool_005fform_005finput_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.InputTag.class);
     _jspx_th_form_005finput_005f3.setPageContext(_jspx_page_context);
     _jspx_th_form_005finput_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/VehicleForm.jsp(66,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(98,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005finput_005f3.setPath("mileage");
     int[] _jspx_push_body_count_form_005finput_005f3 = new int[] { 0 };
     try {
@@ -722,7 +761,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.form.TextareaTag _jspx_th_form_005ftextarea_005f0 = (org.springframework.web.servlet.tags.form.TextareaTag) _005fjspx_005ftagPool_005fform_005ftextarea_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.TextareaTag.class);
     _jspx_th_form_005ftextarea_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005ftextarea_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/VehicleForm.jsp(71,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(103,8) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005ftextarea_005f0.setPath("description");
     int[] _jspx_push_body_count_form_005ftextarea_005f0 = new int[] { 0 };
     try {
@@ -749,7 +788,7 @@ public final class VehicleForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.springframework.web.servlet.tags.form.HiddenInputTag _jspx_th_form_005fhidden_005f0 = (org.springframework.web.servlet.tags.form.HiddenInputTag) _005fjspx_005ftagPool_005fform_005fhidden_0026_005fpath_005fnobody.get(org.springframework.web.servlet.tags.form.HiddenInputTag.class);
     _jspx_th_form_005fhidden_005f0.setPageContext(_jspx_page_context);
     _jspx_th_form_005fhidden_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_form_005fform_005f0);
-    // /WEB-INF/jsp/VehicleForm.jsp(76,3) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/VehicleForm.jsp(108,3) name = path type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_form_005fhidden_005f0.setPath("secretValue");
     int[] _jspx_push_body_count_form_005fhidden_005f0 = new int[] { 0 };
     try {

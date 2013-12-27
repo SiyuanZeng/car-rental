@@ -15,7 +15,8 @@
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name="siyuan" password="123456" authorities="ROLE_USER" />
+				<user name="siyuan" password="1234" authorities="ROLE_USER" />
+				<user name="jinglin" password="1234" authorities="ROLE_USER" />
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>

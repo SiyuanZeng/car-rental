@@ -13,7 +13,29 @@
 </style>
 </head>
 <body onload='document.f.j_username.focus();'>
+	<center>
 	<h3>Login with Username and Password (Custom Page)</h3>
+	<%
+		//allow access only if session exists
+		String user = null;
+		if (session.getAttribute("user") != null)
+			user = (String) session.getAttribute("user");
+		String userName = null;
+		String sessionID = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("user"))
+					userName = cookie.getValue();
+				if (cookie.getName().equals("JSESSIONID"))
+					sessionID = cookie.getValue();
+			}
+		}
+	%>
+	Welcome, <%=userName%> !
+
+	</br>
+	</br>
 
 	<c:if test="${not empty error}">
 		<div class="errorblock">
@@ -22,31 +44,29 @@
 		</div>
 	</c:if>
 
+
 	<form name='f' action="<c:url value='j_spring_security_check' />"
 		method='POST'>
 
 		<table>
 			<tr>
 				<td>User:</td>
-				<td><input type='text' name='j_username' value=''>
-				</td>
+				<td><input type='text' name='j_username' value=''></td>
 			</tr>
 			<tr>
 				<td>Password:</td>
-				<td><input type='password' name='j_password' />
-				</td>
+				<td><input type='password' name='j_password' /></td>
 			</tr>
 			<tr>
-				<td colspan='2'><input name="submit" type="submit"
-					value="submit" />
-				</td>
+				<td><input name="submit" type="submit"
+					value="submit" /></td>
+				<td><input name="reset" type="reset" /></td>
 			</tr>
 			<tr>
-				<td colspan='2'><input name="reset" type="reset" />
-				</td>
 			</tr>
 		</table>
 
 	</form>
+	</center>
 </body>
 </html>
