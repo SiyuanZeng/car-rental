@@ -13,7 +13,7 @@ public class NormalHourController extends AbstractController{
 			HttpServletResponse response) throws Exception {
 		System.out.println("NormalHourController handleRequestInternal");
 
-		ModelAndView model = new ModelAndView("WelcomePage");
+		ModelAndView model = new ModelAndView("NormalHourPage");
 		model.addObject("classname", "NormalHourController");
 
 		return model;
