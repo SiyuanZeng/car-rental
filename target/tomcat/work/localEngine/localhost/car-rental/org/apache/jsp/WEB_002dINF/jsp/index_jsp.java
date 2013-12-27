@@ -1,4 +1,4 @@
-package org.apache.jsp;
+package org.apache.jsp.WEB_002dINF.jsp;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -63,19 +63,26 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<title>Vehicle rental</title>\r\n");
       out.write("</head>\r\n");
       out.write("<body>\r\n");
-      out.write("<ul>\r\n");
-      out.write("<li><a href=\"booking.action\">Book a Vehicle</a></li>\r\n");
-      out.write("<li><a href=\"addVehicle.action\">Add a Vehicle</a></li>\r\n");
-      out.write("<li> <a href=\"reporting.action\">Vehicle Booking Report</a></li>\r\n");
-      out.write("<li><a href=\"customer.htm\">Customer</a></li>\r\n");
-      out.write("<li> <a href=\"vehicle.htm\">Vehicle Controller</a></li>\r\n");
-      out.write("<li><a href=\"vehicleRental.htm\">Vehicle Rental Controller</a></li>\r\n");
-      out.write("<li><a href=\"vehicleRentalReport.htm\">Vehicle Rental Report Controller</a></li>\r\n");
-      out.write(" <a href=\"");
+      out.write("\t<h3>Message : ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${message}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("</h3>\r\n");
+      out.write("\t<h3>Username : ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${username}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+      out.write("</h3>\r\n");
+      out.write("\t<ul>\r\n");
+      out.write("\t\t<li><a href=\"booking.action\">Book a Vehicle</a></li>\r\n");
+      out.write("\t\t<li><a href=\"addVehicle.action\">Add a Vehicle</a></li>\r\n");
+      out.write("\t\t<li><a href=\"reporting.action\">Vehicle Booking Report</a></li>\r\n");
+      out.write("\t\t<li><a href=\"customer.htm\">Customer</a></li>\r\n");
+      out.write("\t\t<li><a href=\"vehicle.htm\">Vehicle Controller</a></li>\r\n");
+      out.write("\t\t<li><a href=\"vehicleRental.htm\">Vehicle Rental Controller</a></li>\r\n");
+      out.write("\t\t<li><a href=\"vehicleRentalReport.htm\">Vehicle Rental Report\tController</a></li>\r\n");
+      out.write("\t\t<li><a href=\"normalhour.htm\">Welcome Controller</a></li>\r\n");
+      out.write("\t\t<a href=\"");
       if (_jspx_meth_c_005furl_005f0(_jspx_page_context))
         return;
       out.write("\"> Logout</a>\r\n");
-      out.write("</ul>\r\n");
+      out.write("\t</ul>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -98,7 +105,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f0.setParent(null);
-    // /index.jsp(19,10) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/index.jsp(22,11) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f0.setValue("/j_spring_security_logout");
     int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
     if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {

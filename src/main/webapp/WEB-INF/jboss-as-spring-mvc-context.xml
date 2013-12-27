@@ -36,7 +36,10 @@
 
 
 	<!-- AUTOWIRED -->
-	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+
 
 
 

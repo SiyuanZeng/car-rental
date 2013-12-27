@@ -13,11 +13,12 @@
 	<!-- Register the Customer.properties -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basenames" value="carrental/properties/Customer, carrental/properties/Vehicle, carrental/properties/VehicleRental, carrental/properties/Login" />
+		<property name="basenames"
+			value="carrental/properties/Customer, carrental/properties/Vehicle, carrental/properties/VehicleRental, carrental/properties/Login" />
 	</bean>
 
 
-<!--END Validator-->
+	<!--END Validator -->
 
 
 	<bean id="viewResolver"
@@ -29,5 +30,11 @@
 	<mvc:resources mapping="/static/**" location="/" />
 
 	<mvc:default-servlet-handler />
+
+
+
+
+
+
 
 </beans>

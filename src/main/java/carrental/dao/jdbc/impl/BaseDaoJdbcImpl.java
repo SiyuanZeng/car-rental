@@ -22,7 +22,7 @@ import carrental.exceptions.DaoException;
 
 
 public class BaseDaoJdbcImpl implements BaseDao  {
-	
+
 	Connection con=null;
 	@Override
 	public Connection getConnection() throws ApplicationException, DaoException {
@@ -33,7 +33,7 @@ public class BaseDaoJdbcImpl implements BaseDao  {
 		try {
 			Class.forName(driver);
 			con=DriverManager.getConnection(url, user, password);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new ApplicationException(e);
@@ -42,7 +42,7 @@ public class BaseDaoJdbcImpl implements BaseDao  {
 			throw new ApplicationException(e.getMessage(),e);
 		}
 		return con;
-		
+
 	}
 	@Override
 	public void closeConnection(Connection con) throws ApplicationException{
