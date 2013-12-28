@@ -11,8 +11,14 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList(1);
+    _jspx_dependants.add("/WEB-INF/tags/login.tld");
+  }
+
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fif_0026_005ftest;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody;
+  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fi18N_005fmessage_0026_005fkey_005fnobody;
 
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
@@ -24,6 +30,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
   public void _jspInit() {
     _005fjspx_005ftagPool_005fc_005fif_0026_005ftest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _005fjspx_005ftagPool_005fi18N_005fmessage_0026_005fkey_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
   }
@@ -31,6 +38,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
   public void _jspDestroy() {
     _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.release();
     _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.release();
+    _005fjspx_005ftagPool_005fi18N_005fmessage_0026_005fkey_005fnobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -47,7 +55,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 
     try {
-      response.setContentType("text/html");
+      response.setContentType("text/html; charset=ISO-8859-1");
       pageContext = _jspxFactory.getPageContext(this, request, response,
       			null, true, 8192, true);
       _jspx_page_context = pageContext;
@@ -57,6 +65,8 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out = pageContext.getOut();
       _jspx_out = out;
 
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("\r\n");
       out.write("<html>\r\n");
       out.write("<head>\r\n");
@@ -114,11 +124,17 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\t\t<table>\r\n");
       out.write("\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t<td>User:</td>\r\n");
+      out.write("\t\t\t\t<td>");
+      if (_jspx_meth_i18N_005fmessage_005f0(_jspx_page_context))
+        return;
+      out.write("</td>\r\n");
       out.write("\t\t\t\t<td><input type='text' name='j_username' value=''></td>\r\n");
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t\t<tr>\r\n");
-      out.write("\t\t\t\t<td>Password:</td>\r\n");
+      out.write("\t\t\t\t<td>");
+      if (_jspx_meth_i18N_005fmessage_005f1(_jspx_page_context))
+        return;
+      out.write("</td>\r\n");
       out.write("\t\t\t\t<td><input type='password' name='j_password' /></td>\r\n");
       out.write("\t\t\t</tr>\r\n");
       out.write("\t\t\t<tr>\r\n");
@@ -154,7 +170,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_005fif_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fif_005f0.setParent(null);
-    // /WEB-INF/jsp/login.jsp(40,1) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/login.jsp(43,1) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${not empty error}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -188,7 +204,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f0.setParent(null);
-    // /WEB-INF/jsp/login.jsp(48,24) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/jsp/login.jsp(51,24) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005furl_005f0.setValue("j_spring_security_check");
     int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
     if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -196,6 +212,44 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       return true;
     }
     _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f0);
+    return false;
+  }
+
+  private boolean _jspx_meth_i18N_005fmessage_005f0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  i18N:message
+    carrental.tags.MessageTag _jspx_th_i18N_005fmessage_005f0 = (carrental.tags.MessageTag) _005fjspx_005ftagPool_005fi18N_005fmessage_0026_005fkey_005fnobody.get(carrental.tags.MessageTag.class);
+    _jspx_th_i18N_005fmessage_005f0.setPageContext(_jspx_page_context);
+    _jspx_th_i18N_005fmessage_005f0.setParent(null);
+    // /WEB-INF/jsp/login.jsp(56,8) name = key type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_i18N_005fmessage_005f0.setKey("user");
+    int _jspx_eval_i18N_005fmessage_005f0 = _jspx_th_i18N_005fmessage_005f0.doStartTag();
+    if (_jspx_th_i18N_005fmessage_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fi18N_005fmessage_0026_005fkey_005fnobody.reuse(_jspx_th_i18N_005fmessage_005f0);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fi18N_005fmessage_0026_005fkey_005fnobody.reuse(_jspx_th_i18N_005fmessage_005f0);
+    return false;
+  }
+
+  private boolean _jspx_meth_i18N_005fmessage_005f1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  i18N:message
+    carrental.tags.MessageTag _jspx_th_i18N_005fmessage_005f1 = (carrental.tags.MessageTag) _005fjspx_005ftagPool_005fi18N_005fmessage_0026_005fkey_005fnobody.get(carrental.tags.MessageTag.class);
+    _jspx_th_i18N_005fmessage_005f1.setPageContext(_jspx_page_context);
+    _jspx_th_i18N_005fmessage_005f1.setParent(null);
+    // /WEB-INF/jsp/login.jsp(60,8) name = key type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_i18N_005fmessage_005f1.setKey("password");
+    int _jspx_eval_i18N_005fmessage_005f1 = _jspx_th_i18N_005fmessage_005f1.doStartTag();
+    if (_jspx_th_i18N_005fmessage_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _005fjspx_005ftagPool_005fi18N_005fmessage_0026_005fkey_005fnobody.reuse(_jspx_th_i18N_005fmessage_005f1);
+      return true;
+    }
+    _005fjspx_005ftagPool_005fi18N_005fmessage_0026_005fkey_005fnobody.reuse(_jspx_th_i18N_005fmessage_005f1);
     return false;
   }
 }

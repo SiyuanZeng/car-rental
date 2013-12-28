@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@taglib uri="/WEB-INF/tags/login.tld"  prefix="i18N"%>
 <html>
 <head>
 <title>Login Page</title>
@@ -50,11 +53,11 @@
 
 		<table>
 			<tr>
-				<td>User:</td>
+				<td><i18N:message key="user" /></td>
 				<td><input type='text' name='j_username' value=''></td>
 			</tr>
 			<tr>
-				<td>Password:</td>
+				<td><i18N:message key="password" /></td>
 				<td><input type='password' name='j_password' /></td>
 			</tr>
 			<tr>
