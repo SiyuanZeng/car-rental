@@ -46,7 +46,7 @@ public class VehicleRentalController extends RentalController {
 
 	@InitBinder
 	public void initBinder(WebDataBinder webDataBinder) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		dateFormat.setLenient(false);
 		webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, true));
@@ -135,9 +135,12 @@ public class VehicleRentalController extends RentalController {
 			@RequestParam("days") String days) throws ServletException,
 			IOException {
 		try {
+			System.out.println(days);
 			GetRentDao dao = new GetRentaoJdbcImpl();
 			Integer rent = dao.getRent(registrationNumber);
+			System.out.println(rent);
 			Integer totalRent = rent * Integer.parseInt(days);
+			System.out.println(totalRent);
 			System.out.println(totalRent);
 			return totalRent.toString();
 		} catch (Exception e) {

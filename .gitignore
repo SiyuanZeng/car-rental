@@ -6,3 +6,5 @@
 # Or you can do:
 target/
 # which matches 'target' in any sub folder
+/target/
+target/*

@@ -40,7 +40,7 @@
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
 
-
-
+		<!--mytheme -->
+	<mvc:resources mapping="/resources/**" location="/resources/mytheme/" />
 
 </beans>
