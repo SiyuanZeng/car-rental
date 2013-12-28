@@ -1,0 +1,161 @@
+@CHARSET "ISO-8859-1";
+
+a {
+	text-decoration: none;
+	color: #444444;
+	font-weight: bold;
+}
+
+h1 {
+	color: #444444;
+	font-family: Helvetica;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	vertical-align: middle;
+}
+
+img {
+	margin-top: 10px;
+	padding: 0px;
+	vertical-align: middle;
+}
+
+.body {
+	display: inline-block ;/* so that it wont't spread across the screen */
+	position: relative ;/* if it is absolute, it will just be in the left */
+	background-color: red;/* form color */
+	border: 5px solid;/*  */
+	border-radius: 5px;/*  */
+	border-color: #444444;/*  */
+	color: #444444;/*  */
+	font-family: Helvetica;/*  */
+	padding: 5em;/* space except top */
+	padding-top: 1em;/* space */
+	margin-left: auto;/*  */
+	margin-right: auto;/*  */
+	margin-top: 20px;   /* top */
+	margin-bottom: 20px;  /* submit button & body */
+	text-align: center;/*  */
+}
+
+.title {
+	display: inline-block;		
+	position: absolute;			
+	vertical-align: middle;		
+	background-color: #FFFFFF;	
+	padding-left: 15px;			
+	padding-right: 15px;			
+	padding-top: 10px;   		/* 相同的格式 */
+	padding-bottom: 10px;		
+	margin-top: 0px;			
+	margin-bottom: 0px;			
+	top: -1.25em;				
+	left: 1.25em;
+}
+
+.fieldText {
+	color: #555555;
+	font-family: Helvetica;
+	font-size: 0.75em;
+}
+
+.mandatoryFieldText {
+	color: #FF0000;
+	font-family: Helvetica;
+	font-size: 0.75em;
+}
+
+.fieldText2 {
+	color: #555555;
+	font-family: Helvetica;
+	font-size: 0.75em;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.mandatoryFieldText2 {
+	color: #FF0000;
+	font-family: Helvetica;
+	font-size: 0.75em;
+	padding-left: 0px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.nestedFieldText {
+	float: left;
+	vertical-align: middle;
+	color: #555555;
+	font-family: Helvetica;
+	font-size: 0.75em;
+	padding-right: 10px;
+}
+
+.groupFieldTitle {
+	text-align: left;
+	color: #444444;
+	font-family: Helvetica;
+	font-size: 1.10em;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 15px;
+	padding-bottom: 0px;
+}
+
+.formField {
+	float: left;
+	vertical-align: middle;
+	text-align: left;
+	background-color: #FFFFFF;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.nestedFormField {
+	float: left;
+	vertical-align: middle;
+	text-align: left;
+	background-color: #FFFFFF;
+}
+
+.formFieldClear {
+	clear: both;
+}
+
+.formFieldButtons {
+	vertical-align: middle;
+	background-color: #FFFFFF;
+	padding: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+.error {
+	text-align: center;
+	color: #FF0000;
+	font-family: Helvetica;
+	font-size: 0.75em;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 15px;
+	padding-bottom: 0px;
+}
+
+.mandatoryFieldError {
+	float: left;
+	vertical-align: middle;
+	text-align: left;
+	background-color: #FFFFFF;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-color: #FF0000;
+}

@@ -1,0 +1,14 @@
+<taglib>
+	<jsp-version>1.2</jsp-version>
+	<tlib-version>1.0</tlib-version>
+	<uri>http://www.car-rental.com/i18n</uri>
+	<tag>
+		<name>message</name>
+		<tag-class>carrental.tags.MessageTag</tag-class>
+		<attribute>
+			<name>key</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>
