@@ -21,6 +21,7 @@
 	<bean class="carrental.validator.CustomerValidator" />
 	<bean class="carrental.validator.VehicleValidator" />
 	<bean class="carrental.validator.VehicleRentalValidator" />
+	<bean class="carrental.validator.TaskValidator" />
 
 
 

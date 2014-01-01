@@ -2,12 +2,15 @@ package carrental.constants;
 
 public class DbConstants {
 
-	public static final String ADD_BOOKING_RENTAL_VEHICLE="insert into vehicle_booking" +
-	"(customer_name,vehicle_category,vehicle_reg_no," +
-	"booked_from,booked_to, total_rent, payment_status) values(?,?,?,?,?,?,?)";
-	public static final String ADD_VEHICLE="insert into vehicles" +
-	"(registration_no,fuel_type,manufacturer,mileage," +
-	"category,daily_rent, description) values(?,?,?,?,?,?,?)";
+	public static final String ADD_BOOKING_RENTAL_VEHICLE="insert into vehicle_booking" + "(customer_name,vehicle_category,vehicle_reg_no," + "booked_from,booked_to, total_rent, payment_status) values(?,?,?,?,?,?,?)";
+	public static final String INSERT_VEHICLE="insert into vehicles" + "(registration_no,fuel_type,manufacturer,mileage," + "category,daily_rent, description) values(?,?,?,?,?,?,?)";
+	public static final String INSERT_TASK="insert into task (Task_Id,Category_Id,Name,Deadline,Time,Description) values(?,?,?,?,?,?)";
+	public static final String INSERT_CATEGORY="insert into category (Category_Id,Name) values(?,?)";
+
+
+
+
+
 	public static final String GET_CATEGORY="select registration_no,category,daily_rent from vehicles";
 	public static final String GET_FUEL_TYPE="select fuel_type from vehicles";
 	public static final String GET_REG_NO="select registration_no from vehicles where category=?";
@@ -28,5 +31,11 @@ public class DbConstants {
 	"From vehicle_booking b " +
 	"Group by b.vehicle_category) as Data2 " +
 	"On Data1.category = Data2.category;";
+
+	public static final String SELECT_CATEGORY="select Category_Id, Name from category";
+	public static final String SELECT_CATEGORY_BY_ID="select Name from category where Category_Id=?";
+	public static final String SELECT_TASK="select * from task";
+
+
 
 }

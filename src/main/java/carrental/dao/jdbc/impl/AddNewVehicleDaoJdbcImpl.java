@@ -20,7 +20,7 @@ public class AddNewVehicleDaoJdbcImpl extends BaseDaoJdbcImpl implements
 	public void addNewVehicle(Vehicle v) throws DaoException {
 		try{
 			con=getConnection();
-			pst=con.prepareStatement(DbConstants.ADD_VEHICLE);
+			pst=con.prepareStatement(DbConstants.INSERT_VEHICLE);
 			pst.setString(1, v.getRegistrationNumber());
 			pst.setString(2, v.getFuelType());
 			pst.setString(3, v.getManufacturer());
