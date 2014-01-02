@@ -9,6 +9,7 @@ import java.util.List;
 
 import carrental.constants.DbConstants;
 import carrental.dao.CategoryDao;
+import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
 import carrental.model.Category;
 
@@ -40,6 +41,15 @@ public class CategoryDaoImpl extends BaseDaoJdbcImpl implements CategoryDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(), e);
+		} finally {
+			try {
+				closePreparedStatement(pst);
+				closeResultSet(rs);
+				closeConnection(con);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return categoryList;
 	}
@@ -67,25 +77,72 @@ public class CategoryDaoImpl extends BaseDaoJdbcImpl implements CategoryDao {
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(), e);
 
+		} finally {
+			try {
+				closePreparedStatement(pst);
+				closeResultSet(rs);
+				closeConnection(con);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return 0;
 	}
 
 	@Override
-	public Category findById(int categoryId) throws DaoException {
-		Category category = new Category();
+	public Category findById(Category category) throws DaoException {
+
 		try {
 			con = getConnection();
 			pst = con.prepareStatement(DbConstants.SELECT_CATEGORY_BY_ID);
-			pst.setInt(1, categoryId);
+			pst.setInt(1, category.getId());
 			rs = pst.executeQuery();
 
 			while (rs.next()) {
 				category.setName(rs.getString("Name"));
+				System.out.println(category.getName());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(), e);
+		} finally {
+			try {
+				closePreparedStatement(pst);
+				closeResultSet(rs);
+				closeConnection(con);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return category;
+	}
+
+	@Override
+	public Category findByName(Category category) throws DaoException {
+
+		try {
+			con = getConnection();
+			pst = con.prepareStatement(DbConstants.SELECT_CATEGORY_BY_NAME);
+			pst.setString(1, category.getName());
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				category.setId(rs.getInt("Category_Id"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DaoException(e.getMessage(), e);
+		} finally {
+			try {
+				closePreparedStatement(pst);
+				closeResultSet(rs);
+				closeConnection(con);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return category;
 	}

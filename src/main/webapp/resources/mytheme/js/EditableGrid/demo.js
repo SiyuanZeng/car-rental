@@ -1,6 +1,6 @@
 /*
  * examples/full/javascript/demo.js
- * 
+ *
  * This file is part of EditableGrid.
  * http://editablegrid.net
  *
@@ -19,24 +19,24 @@ var editableGrid = new EditableGrid("DemoGridFull", {
 });
 
 // helper function to display a message
-function displayMessage(text, style) { 
-	_$("message").innerHTML = "<p class='" + (style || "ok") + "'>" + text + "</p>"; 
-} 
+function displayMessage(text, style) {
+	_$("message").innerHTML = "<p class='" + (style || "ok") + "'>" + text + "</p>";
+}
 
 // helper function to get path of a demo image
-function image(relativePath) {
-	return "images/" + relativePath;
+image =function(relativePath) {
+	return "http://localhost:8080/car-rental/resources/images/EditableGrid/" + relativePath;
 }
 
 // this will be used to render our table headers
-function InfoHeaderRenderer(message) { 
-	this.message = message; 
+function InfoHeaderRenderer(message) {
+	this.message = message;
 	this.infoImage = new Image();
 	this.infoImage.src = image("information.png");
 };
 
 InfoHeaderRenderer.prototype = new CellRenderer();
-InfoHeaderRenderer.prototype.render = function(cell, value) 
+InfoHeaderRenderer.prototype.render = function(cell, value)
 {
 	if (value) {
 		// here we don't use cell.innerHTML = "..." in order not to break the sorting header that has been created for us (cf. option enableSort: true)
@@ -49,7 +49,7 @@ InfoHeaderRenderer.prototype.render = function(cell, value)
 };
 
 // this function will initialize our editable grid
-EditableGrid.prototype.initializeGrid = function() 
+EditableGrid.prototype.initializeGrid = function()
 {
 	with (this) {
 /*
@@ -63,11 +63,11 @@ EditableGrid.prototype.initializeGrid = function()
 		// the list of allowed countries depend on the selected continent
 		if (hasColumn('continent')) {
 
-			setEnumProvider("country", new EnumProvider({ 
-			
+			setEnumProvider("country", new EnumProvider({
+
 				// the function getOptionValuesForEdit is called each time the cell is edited
 				// here we do only client-side processing, but you could use Ajax here to talk with your server
-				// if you do, then don't forget to use Ajax in synchronous mode 
+				// if you do, then don't forget to use Ajax in synchronous mode
 				getOptionValuesForEdit: function (grid, column, rowIndex) {
 					var continent = editableGrid.getValueAt(rowIndex, editableGrid.getColumnIndex("continent"));
 					if (continent == "eu") return { "be" : "Belgique", "fr" : "France", "uk" : "Great-Britain", "nl": "Nederland"};
@@ -79,14 +79,14 @@ EditableGrid.prototype.initializeGrid = function()
 		}
 
 		getColumn("country").cellEditor.minWidth = 105;
-		
-		
+
+
 		// use a flag image to render the selected country
 		setCellRenderer("country", new CellRenderer({
 			render: function(cell, value) { cell.innerHTML = value ? "<img src='" + image("flags/" + value.toLowerCase() + ".png") + "' alt='" + value + "'/>" : ""; }
-		})); 
+		}));
 
-	
+
 		// use autocomplete on firstname
 		setCellEditor("firstname", new AutocompleteCellEditor({
 			suggestions: ['Leonard','Kirsten','Scott','Wayne','Stephanie','Astra','Charissa','Quin','Baxter','Jaime',
@@ -98,26 +98,87 @@ EditableGrid.prototype.initializeGrid = function()
 			              'Lenore','Owen','Sage','Tyrone','George','Deacon','Serina','Brian','Alden','Chadwick',
 			              'Oleg','Stewart','Cynthia','Coby','Briar','Kasimir','Margaret','Lesley','Kareem','Kirestin',
 			              'Zephania','Lee','Vladimir','Daryl','Henry','Amena','Camille','Dorian','Brenna','Anne','Price',
-			              'Kelly','Maxine','Joseph','Illiana','Virginia','Reese','Mark', 'Paul', 'Jackie', 'Greg', 
-			              'Matthew', 'Anthony', 'Claude', 'Louis', 'Marcello', 'Bernard', 'Betrand', 'Jessica', 'Patrick', 
-			              'Robert', 'John', 'Jack', 'Duke', 'Denise', 'Antoine', 'Coby', 'Rana', 'Jasmine', 'André', 
+			              'Kelly','Maxine','Joseph','Illiana','Virginia','Reese','Mark', 'Paul', 'Jackie', 'Greg',
+			              'Matthew', 'Anthony', 'Claude', 'Louis', 'Marcello', 'Bernard', 'Betrand', 'Jessica', 'Patrick',
+			              'Robert', 'John', 'Jack', 'Duke', 'Denise', 'Antoine', 'Coby', 'Rana', 'Jasmine', 'André',
 			              'Martin', 'Amédé', 'Wanthus']
 		}));
-		
+
 		*/
 
 		// add a cell validator to check that the time is in [15, 100[
-		addCellValidator("time", new CellValidator({ 
+		addCellValidator("Time", new CellValidator({
 			isValid: function(value) { return value == "" || (parseInt(value) >= 0 && parseInt(value) < 10000); }
 		}));
-		
+
 		// register the function that will handle model changes
-		modelChanged = function(rowIndex, columnIndex, oldValue, newValue, row) { 
+		modelChanged = function(rowIndex, columnIndex, oldValue, newValue, row) {
+
+
+			$.ajax({
+
+				url: "http://localhost:8080/car-rental/task.htm?updateTask=true",
+
+				type: 'POST',
+
+				dataType: "json",
+				// the data match meta-data
+				data: {
+					id: editableGrid.getRowId(rowIndex),
+					column: columnIndex,
+					tablename : editableGrid.name,
+					newvalue: editableGrid.getColumnType(columnIndex) == "boolean" ? (newValue ? 1 : 0) : newValue,
+					colname: editableGrid.getColumnName(columnIndex),
+					coltype: editableGrid.getColumnType(columnIndex)
+				},
+
+				success: function (response) {
+					// reset old value if failed
+					//if (response != "ok") editableGrid.setValueAt(rowIndex, columnIndex, oldValue);
+					// here you could also highlight the updated row to give the user some feedback
+				},
+
+				error: function(XMLHttpRequest, textStatus, exception) {
+					editableGrid.setValueAt(rowIndex, columnIndex, oldValue);
+					alert(XMLHttpRequest.responseText);
+				}
+			});
+
+
+
 			displayMessage("Value for '" + this.getColumnName(columnIndex) + "' in row " + this.getRowId(rowIndex) + " has changed from '" + oldValue + "' to '" + newValue + "'");
 			if (this.getColumnName(columnIndex) == "continent") this.setValueAt(rowIndex, this.getColumnIndex("country"), ""); // if we changed the continent, reset the country
    	    	this.renderCharts();
+
 		};
-		
+
+
+		//C1 add a new ajax call to delete task when click the delete button
+		// *****************************************************************************************8888888888 the rowId is worong!!!!!!!!!!!!!!!!!!
+		removeTask = function (deleteCell) {
+			alert(deleteCell);
+
+
+			$.ajax({
+				url: "http://localhost:8080/car-rental/task.htm?deleteTask=true",
+				type: 'POST',
+				dataType: "json",
+				// the data match meta-data
+				data: {	deleteRow: editableGrid.getRowId(deleteCell)},
+				success: function (response) {
+					// reset old value if failed
+					//if (response != "ok") editableGrid.setValueAt(rowIndex, columnIndex, oldValue);
+					// here you could also highlight the updated row to give the user some feedback
+				},
+				error: function(XMLHttpRequest, textStatus, exception) {
+					alert(XMLHttpRequest.responseText);
+				}
+			});
+	};
+
+
+
+
 		// update paginator whenever the table is rendered (after a sort, filter, page change, etc.)
 		tableRendered = function() { this.updatePaginator(); };
 
@@ -131,40 +192,40 @@ EditableGrid.prototype.initializeGrid = function()
 			if (oldRowIndex < 0) displayMessage("Selected row '" + this.getRowId(newRowIndex) + "'");
 			else displayMessage("Selected row has changed from '" + this.getRowId(oldRowIndex) + "' to '" + this.getRowId(newRowIndex) + "'");
 		};
-		
+
 		// render for the action column
-		setCellRenderer("action", new CellRenderer({render: function(cell, value) {
-			// this action will remove the row, so first find the ID of the row containing this cell 
+		setCellRenderer("Action", new CellRenderer({render: function(cell, value) {
+			// this action will remove the row, so first find the ID of the row containing this cell
 			var rowId = editableGrid.getRowId(cell.rowIndex);
-			
-			cell.innerHTML = "<a onclick=\"if (confirm('Are you sure you want to delete this person ? ')) { editableGrid.remove(" + cell.rowIndex + "); editableGrid.renderCharts(); } \" style=\"cursor:pointer\">" +
+
+			cell.innerHTML = "<a onclick=\"if (confirm('Are you sure you want to delete this person ? ')) { removeTask(" + cell.rowIndex + "); editableGrid.remove(" + cell.rowIndex + "); editableGrid.renderCharts(); } \" style=\"cursor:pointer\">" +
 							 "<img src=\"" + "http://www.92recover.com/wordpress/wp-content/uploads/2011/05/DeleteRed.png" + "\" border=\"0\" alt=\"delete\" title=\"Delete row\" width=\"15\" height=\"15\"/></a>";
-			
+
 			cell.innerHTML+= "&nbsp;<a onclick=\"editableGrid.duplicate(" + cell.rowIndex + ");\" style=\"cursor:pointer\">" +
 			 "<img src=\"" + "http://png-4.findicons.com/files/icons/2021/free_business/128/copy.png" + "\" border=\"0\" alt=\"duplicate\" title=\"Duplicate row\" width=\"15\" height=\"15\"/></a>";
-			
-		}})); 
-		
+
+		}}));
+
 		// render the grid (parameters will be ignored if we have attached to an existing HTML table)
 		renderGrid("tablecontent", "testgrid", "tableid");
-		
+
 		// set active (stored) filter if any
 		_$('filter').value = currentFilter ? currentFilter : '';
-		
+
 		// filter when something is typed into filter
 		_$('filter').onkeyup = function() { editableGrid.filter(_$('filter').value); };
-		
+
 		// bind page size selector
 		$("#pagesize").val(pageSize).change(function() { editableGrid.setPageSize($("#pagesize").val()); });
 		$("#barcount").val(maxBars).change(function() { editableGrid.maxBars = $("#barcount").val(); editableGrid.renderCharts(); });
 	}
 };
 
-EditableGrid.prototype.onloadXML = function(url) 
+EditableGrid.prototype.onloadXML = function(url)
 {
 	// register the function that will be called when the XML has been fully loaded
-	this.tableLoaded = function() { 
-		displayMessage("Grid loaded from XML: " + this.getRowCount() + " row(s)"); 
+	this.tableLoaded = function() {
+		displayMessage("Grid loaded from XML: " + this.getRowCount() + " row(s)");
 		this.initializeGrid();
 	};
 
@@ -172,11 +233,11 @@ EditableGrid.prototype.onloadXML = function(url)
 	this.loadXML(url);
 };
 
-EditableGrid.prototype.onloadJSON = function(url) 
+EditableGrid.prototype.onloadJSON = function(url)
 {
 	// register the function that will be called when the XML has been fully loaded
-	this.tableLoaded = function() { 
-		displayMessage("Grid loaded from JSON: " + this.getRowCount() + " row(s)"); 
+	this.tableLoaded = function() {
+		displayMessage("Grid loaded from JSON: " + this.getRowCount() + " row(s)");
 		this.initializeGrid();
 	};
 
@@ -184,7 +245,7 @@ EditableGrid.prototype.onloadJSON = function(url)
 	this.loadJSON(url);
 };
 
-EditableGrid.prototype.onloadHTML = function(tableId) 
+EditableGrid.prototype.onloadHTML = function(tableId)
 {
 /*
 	// metadata are built in Javascript: we give for each column a name and a type
@@ -207,23 +268,23 @@ EditableGrid.prototype.onloadHTML = function(tableId)
 /*Customize one by C1*/
 
 	this.load({ metadata: [
-	    { name: "name", datatype: "string", editable: true },
-	    { name: "category", datatype: "string", editable: true },
-	    { name: "deadline", datatype: "date", editable: true },
-	    { name: "time", datatype: "integer", editable: true, bar: false },
-	    { name: "description", datatype: "string", editable: true },
+	    { name: "Name", datatype: "string", editable: true },
+	    { name: "Category", datatype: "string", editable: true },
+	    { name: "Deadline", datatype: "date", editable: true },
+	    { name: "Time", datatype: "integer", editable: true, bar: false },
+	    { name: "Description", datatype: "string", editable: true },
 		/*To delete and duplicate function*/
-		{ name: "action", datatype: "html", editable: false }
+		{ name: "Action", datatype: "html", editable: false }
 	]});
 
 	// we attach our grid to an existing table
 	this.attachToHTMLTable(_$(tableId));
-	displayMessage("Grid attached to HTML table: " + this.getRowCount() + " row(s)"); 
-	
+	displayMessage("Grid attached to HTML table: " + this.getRowCount() + " row(s)");
+
 	this.initializeGrid();
 };
 
-EditableGrid.prototype.duplicate = function(rowIndex) 
+EditableGrid.prototype.duplicate = function(rowIndex)
 {
 	// copy values from given row
 	var values = this.getRowValues(rowIndex);
@@ -232,15 +293,46 @@ EditableGrid.prototype.duplicate = function(rowIndex)
 	// get id for new row (max id + 1)
 	var newRowId = 0;
 	for (var r = 0; r < this.getRowCount(); r++) newRowId = Math.max(newRowId, parseInt(this.getRowId(r)) + 1);
-	
+
 	// add new row
-	this.insertAfter(rowIndex, newRowId, values); 
+
+	$.ajax({
+		url: "http://localhost:8080/car-rental/task.htm?copyTask=true",
+		type: 'POST',
+		dataType: "json",
+		// the data match meta-data
+		data: {	id: editableGrid.getRowId(rowIndex)},
+		success: function (response) {
+			// reset old value if failed
+			//if (response != "ok") editableGrid.setValueAt(rowIndex, columnIndex, oldValue);
+			// here you could also highlight the updated row to give the user some feedback
+			$.each(response, function(key, task) {
+				alert(task.Task_Id);
+				newRowId=task.Task_Id;
+
+			});
+		},
+		error: function(XMLHttpRequest, textStatus, exception) {
+			alert(XMLHttpRequest.responseText);
+		}
+	});
+
+	this.insertAfter(rowIndex, newRowId, values);
+	alert(newRowId);
+/*	thought that I should change the id.
+ *
+ * alert("rowIndex");
+	alert(rowIndex);
+	this.insertAfter(rowIndex, newRowId, values);
+	alert(editableGrid.getRowId(rowIndex+1));*/
+
+
 };
 
 
 /*
 // function to render our two demo charts
-EditableGrid.prototype.renderCharts = function() 
+EditableGrid.prototype.renderCharts = function()
 {
 	this.renderBarChart("barchartcontent", 'Age per person' + (this.getRowCount() <= this.maxBars ? '' : ' (first ' + this.maxBars + ' rows out of ' + this.getRowCount() + ')'), 'name', { limit: this.maxBars, bar3d: false, rotateXLabels: this.maxBars > 10 ? 270 : 0 });
 	this.renderPieChart("piechartcontent", 'Country distribution', 'country', 'country');
@@ -257,13 +349,13 @@ EditableGrid.prototype.updatePaginator = function()
 	// get interval
 	var interval = this.getSlidingPageInterval(20);
 	if (interval == null) return;
-	
+
 	// get pages in interval (with links except for the current page)
 	var pages = this.getPagesInInterval(interval, function(pageIndex, isCurrent) {
 		if (isCurrent) return "" + (pageIndex + 1);
 		return $("<a>").css("cursor", "pointer").html(pageIndex + 1).click(function(event) { editableGrid.setPageIndex(parseInt($(this).html()) - 1); });
 	});
-		
+
 	// "first" link
 	var link = $("<a>").html("<img src='" + image("gofirst.png") + "'/>&nbsp;");
 	if (!this.canGoBack()) link.css({ opacity : 0.4, filter: "alpha(opacity=40)" });
@@ -275,10 +367,10 @@ EditableGrid.prototype.updatePaginator = function()
 	if (!this.canGoBack()) link.css({ opacity : 0.4, filter: "alpha(opacity=40)" });
 	else link.css("cursor", "pointer").click(function(event) { editableGrid.prevPage(); });
 	paginator.append(link);
-
+//	http://localhost:8080/car-rental/resources/js/EditableGrid/images/bullet_arrow_up.png
 	// pages
 	for (p = 0; p < pages.length; p++) paginator.append(pages[p]).append(" | ");
-	
+
 	// "next" link
 	link = $("<a>").html("<img src='" + image("next.png") + "'/>&nbsp;");
 	if (!this.canGoForward()) link.css({ opacity : 0.4, filter: "alpha(opacity=40)" });
@@ -291,3 +383,5 @@ EditableGrid.prototype.updatePaginator = function()
 	else link.css("cursor", "pointer").click(function(event) { editableGrid.lastPage(); });
 	paginator.append(link);
 };
+
+

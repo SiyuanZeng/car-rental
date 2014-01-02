@@ -8,45 +8,53 @@ import java.util.List;
 
 import carrental.constants.DbConstants;
 import carrental.dao.GetReportDao;
+import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
 import carrental.model.ReportEntry;
-
-
 
 /**
  * @author M1017325
  *
  */
 
+public class GetReportDaoJdbcImpl extends BaseDaoJdbcImpl implements
+		GetReportDao {
 
-public class GetReportDaoJdbcImpl extends BaseDaoJdbcImpl implements GetReportDao {
-
-	Connection con=null;
-	Statement st=null;
-	ResultSet rs=null;
+	Connection con = null;
+	Statement st = null;
+	ResultSet rs = null;
 
 	@Override
 	public List<ReportEntry> getReport() throws DaoException {
-		List<ReportEntry> reportList=new ArrayList<ReportEntry>();
-		try{
-			con=getConnection();
-			st=con.createStatement();
-			rs=st.executeQuery(DbConstants.GET_REPORT);
-			while(rs.next()){
-				ReportEntry r= new ReportEntry();
+		List<ReportEntry> reportList = new ArrayList<ReportEntry>();
+		try {
+			con = getConnection();
+			st = con.createStatement();
+			rs = st.executeQuery(DbConstants.GET_REPORT);
+			while (rs.next()) {
+				ReportEntry r = new ReportEntry();
 				r.setVehicleType(rs.getString("Vehicle Type"));
 				r.setTotalNumOfVehicles(rs.getInt("Total No of Vehicles"));
-				r.setTotalNumOfVehiclesRent(rs.getInt("Total No of Vehicles Rented"));
+				r.setTotalNumOfVehiclesRent(rs
+						.getInt("Total No of Vehicles Rented"));
 				r.setTotalRentEarned(rs.getInt("Total Rent Earned"));
 				System.out.println(r.getTotalRentEarned());
 				reportList.add(r);
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DaoException(e.getMessage(),e);
+			throw new DaoException(e.getMessage(), e);
+		} finally {
+			try {
+				closeStatement(st);
+				closeResultSet(rs);
+				closeConnection(con);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return reportList;
 	}
-
 
 }

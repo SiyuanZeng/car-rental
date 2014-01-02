@@ -4,12 +4,15 @@
 <html>
 <head>
 
-<link href="<c:url value="/resources/css/jquery.datepick.css" />"
-	rel="stylesheet">
-<script src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<link href="<c:url value="/resources/css/jquery.datepick.css" />" rel="stylesheet">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="<c:url value="/resources/js/jquery.datepick.js" />"></script>
+<script type="text/javascript">
 
-<script src="<c:url value="/resources/js/EditableGrid/editablegrid-2.0.1.js" />"></script>
+	$(function() { $('#deadline').datepick(); });
+
+</script>
+
 <style>
 .error {
 	color: #ff0000;
@@ -50,11 +53,7 @@
 
 <title>Seed - Add a task</title>
 
-<script type="text/javascript">
-	$(function() {
-		$('#deadline').datepick();
-	});
-</script>
+
 </head>
 <body>
 	<div id="content">
@@ -72,7 +71,7 @@
 			Username :
 			<%=user%></h3>
 
-
+		<%@include  file="EditableGrid/EditableGrid.html" %>
 		<form:form id="taskForm" method="POST" name="task" commandName="task">
 
 			<form:errors path="*" cssClass="errorblock" element="div" />
@@ -93,7 +92,7 @@
 					<td><form:errors path="deadline" cssClass="error" /></td>
 				</tr>
 				<tr>
-					<td>Time :</td>
+					<td>Time Requirement:</td>
 					<td><form:input path="time"></form:input></td>
 					<td></td>
 					<td></td>
@@ -127,7 +126,9 @@
 
 	</div>
 
-	<%@include  file="EditableGrid/EditableGrid.html" %>
+
 
 </body>
+
+
 </html>

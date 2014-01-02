@@ -6,46 +6,51 @@ import java.sql.ResultSet;
 
 import carrental.constants.DbConstants;
 import carrental.dao.GetRentDao;
+import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
-
-
 
 /**
  * @author M1017325
  *
  */
 
-
 public class GetRentaoJdbcImpl extends BaseDaoJdbcImpl implements GetRentDao {
 
-	
-	Connection con=null;
-	PreparedStatement pst=null;
-	ResultSet rs=null;
-	
+	Connection con = null;
+	PreparedStatement pst = null;
+	ResultSet rs = null;
+
 	@Override
-	public Integer getRent(String regNo) throws DaoException{
-		try{
-			con=getConnection();
-			pst=con.prepareStatement(DbConstants.GET_RENT);
+	public Integer getRent(String regNo) throws DaoException {
+		try {
+			con = getConnection();
+			pst = con.prepareStatement(DbConstants.GET_RENT);
 			pst.setString(1, regNo);
-			rs=pst.executeQuery();
-			
+			rs = pst.executeQuery();
+
 			try {
-				if(rs.next()){
+				if (rs.next()) {
 					return rs.getInt("daily_rent");
-				}
-				else{
+				} else {
 					return 0;
 				}
 			} finally {
 				rs.close();
 				pst.close();
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
-			throw new DaoException(e.getMessage(),e);
-			
+			throw new DaoException(e.getMessage(), e);
+
+		} finally {
+			try {
+				closePreparedStatement(pst);
+				closeResultSet(rs);
+				closeConnection(con);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

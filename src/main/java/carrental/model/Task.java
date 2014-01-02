@@ -70,7 +70,7 @@ public class Task {
 
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", name=" + name + ", category="
+		return "Task [id=" + id + ", name=" + name + ", categoryId="+category.getId()+",category="
 				+ category.getName() + ", deadline=" + deadline + ", time="
 				+ time + ", description=" + description + ", subtasks="
 				+ subtasks + "]";

@@ -1,6 +1,6 @@
 /*
  * editablegrid-2.0.1.js
- * 
+ *
  * This file is part of EditableGrid.
  * http://editablegrid.net
  *

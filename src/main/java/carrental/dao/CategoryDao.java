@@ -7,6 +7,7 @@ import carrental.model.Category;
 
 public interface CategoryDao {
 	List<Category> getAllCategory() throws DaoException;
-	Category findById(int id) throws DaoException;
+	Category findById(Category category) throws DaoException;
 	int addCategory(Category category) throws DaoException;
+	Category findByName(Category category) throws DaoException;
 }

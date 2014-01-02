@@ -15,6 +15,18 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+
+
+	public Category() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Category(String name) {
+		super();
+		this.name = name;
+	}
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", name=" + name + "]";

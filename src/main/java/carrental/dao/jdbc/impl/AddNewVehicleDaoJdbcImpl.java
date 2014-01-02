@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 
 import carrental.constants.DbConstants;
 import carrental.dao.AddNewVehicleDao;
+import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
 import carrental.model.Vehicle;
 
@@ -28,14 +29,24 @@ public class AddNewVehicleDaoJdbcImpl extends BaseDaoJdbcImpl implements
 			pst.setString(5, v.getCategory());
 			pst.setInt(6,v.getDailyRent());
 			pst.setString(7,v.getDescription());
-			
+
 			pst.executeUpdate();
 			System.out.println("Data added");
 		}catch(Exception e){
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(),e);
-			
+
 		}
-		
+		finally{
+			try {
+				closePreparedStatement(pst);
+				closeResultSet(rs);
+				closeConnection(con);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
 	}
 }

@@ -34,7 +34,15 @@ public class DbConstants {
 
 	public static final String SELECT_CATEGORY="select Category_Id, Name from category";
 	public static final String SELECT_CATEGORY_BY_ID="select Name from category where Category_Id=?";
+	public static final String SELECT_CATEGORY_BY_NAME="select Category_Id from category where Name=?";
 	public static final String SELECT_TASK="select * from task";
+	public static final String SELECT_TASK_BY_ID="select * from task where Task_Id = ?";
+
+
+	public static final String UPDATE_TASK="UPDATE task SET Name=?, Category_Id=?, Time=?, Deadline=?, Description=? WHERE Task_Id = ?";
+
+
+	public static final String DELETE_TASK="DELETE from task WHERE Task_Id = ?";
 
 
 

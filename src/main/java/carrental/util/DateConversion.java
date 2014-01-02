@@ -13,9 +13,9 @@ public class DateConversion {
 
 	}
 
-	public Date stringToDate(String dateString) {
+	public Date editableGridStringToDate(String dateString) {
 		// TODO Auto-generated method stub
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		Date date = null;
 		try {
 			date = sdf.parse(dateString);

@@ -12,33 +12,42 @@ import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
 import carrental.model.Vehicle;
 
-
 /**
  * @author M1017325
  *
  */
 
-
 public class GetRegNoDaoJdbcImpl extends BaseDaoJdbcImpl implements GetRegNoDao {
 
-	Connection con=null;
-	PreparedStatement pst=null;
-	ResultSet rs=null;
+	Connection con = null;
+	PreparedStatement pst = null;
+	ResultSet rs = null;
+
 	@Override
-	public List<Vehicle> getRegNo(String c) throws ApplicationException, DaoException {
-		List<Vehicle> vehicle=new ArrayList<Vehicle>();
-		try{
-			con=getConnection();
-			pst=con.prepareStatement(DbConstants.GET_REG_NO);
+	public List<Vehicle> getRegNo(String c) throws ApplicationException,
+			DaoException {
+		List<Vehicle> vehicle = new ArrayList<Vehicle>();
+		try {
+			con = getConnection();
+			pst = con.prepareStatement(DbConstants.GET_REG_NO);
 			pst.setString(1, c);
-			rs=pst.executeQuery();
-			while(rs.next()){
-				Vehicle v=new Vehicle();
+			rs = pst.executeQuery();
+			while (rs.next()) {
+				Vehicle v = new Vehicle();
 				v.setRegistrationNumber(rs.getString("registration_no"));
 				vehicle.add(v);
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				closePreparedStatement(pst);
+				closeResultSet(rs);
+				closeConnection(con);
+			} catch (ApplicationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return vehicle;
 	}
