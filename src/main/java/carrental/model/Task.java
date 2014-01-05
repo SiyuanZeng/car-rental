@@ -3,14 +3,19 @@ package carrental.model;
 import java.util.Date;
 import java.util.List;
 
+import org.joda.time.LocalTime;
+
 public class Task {
 	private int id;
 	private String name;
 	private Category category;
 	private Date deadline;
+	private LocalTime startTime;
 	private int time;
+	private LocalTime happyTime;
+	private LocalTime endTime;
 	private String description;
-	private List<Task> subtasks;
+
 
 	public int getId() {
 		return id;
@@ -60,20 +65,38 @@ public class Task {
 		this.description = description;
 	}
 
-	public List<Task> getSubtasks() {
-		return subtasks;
+	public LocalTime getStartTime() {
+		return startTime;
 	}
 
-	public void setSubtasks(List<Task> subtasks) {
-		this.subtasks = subtasks;
+	public void setStartTime(LocalTime startTime) {
+		this.startTime = startTime;
+	}
+
+	public LocalTime getHappyTime() {
+		return happyTime;
+	}
+
+	public void setHappyTime(LocalTime happyTime) {
+		this.happyTime = happyTime;
+	}
+
+	public LocalTime getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(LocalTime endTime) {
+		this.endTime = endTime;
 	}
 
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", name=" + name + ", categoryId="+category.getId()+",category="
-				+ category.getName() + ", deadline=" + deadline + ", time="
-				+ time + ", description=" + description + ", subtasks="
-				+ subtasks + "]";
+		return "Task [id=" + id + ", name=" + name + ", category=" + category.getName()
+				+ ", deadline=" + deadline + ", startTime=" + startTime
+				+ ", time=" + time + ", happyTime=" + happyTime + ", endTime="
+				+ endTime + ", description=" + description + "]";
 	}
+
+
 
 }

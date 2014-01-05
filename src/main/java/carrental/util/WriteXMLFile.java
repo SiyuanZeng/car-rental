@@ -31,47 +31,69 @@ public class WriteXMLFile {
 			// <column name='firstname' label='FIRSTNAME' datatype='string'
 			// editable='true'></column>
 			Element metadata = new Element("metadata");
-			Element firstColumn = new Element("column");
-			firstColumn.setAttribute(new Attribute("name", "Name"));
-			firstColumn.setAttribute(new Attribute("label", "NAME"));
-			firstColumn.setAttribute(new Attribute("datatype", "string"));
-			firstColumn.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(firstColumn);
+			Element Column1 = new Element("column");
+			Column1.setAttribute(new Attribute("name", "Name"));
+			Column1.setAttribute(new Attribute("label", "Name"));
+			Column1.setAttribute(new Attribute("datatype", "string"));
+			Column1.setAttribute(new Attribute("editable", "true"));
+			metadata.addContent(Column1);
 
-			Element secColumn = new Element("column");
-			secColumn.setAttribute(new Attribute("name", "Category"));
-			secColumn.setAttribute(new Attribute("label", "CATEGORY"));
-			secColumn.setAttribute(new Attribute("datatype", "string"));
-			secColumn.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(secColumn);
+			Element Column2 = new Element("column");
+			Column2.setAttribute(new Attribute("name", "Category"));
+			Column2.setAttribute(new Attribute("label", "Category"));
+			Column2.setAttribute(new Attribute("datatype", "string"));
+			Column2.setAttribute(new Attribute("editable", "true"));
+			metadata.addContent(Column2);
 
-			Element thrColumn = new Element("column");
-			thrColumn.setAttribute(new Attribute("name", "Deadline"));
-			thrColumn.setAttribute(new Attribute("label", "DEADLINE"));
-			thrColumn.setAttribute(new Attribute("datatype", "date"));
-			thrColumn.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(thrColumn);
+			Element Column3 = new Element("column");
+			Column3.setAttribute(new Attribute("name", "Deadline"));
+			Column3.setAttribute(new Attribute("label", "Deadline"));
+			Column3.setAttribute(new Attribute("datatype", "date"));
+			Column3.setAttribute(new Attribute("editable", "true"));
+			metadata.addContent(Column3);
 
-			Element fourthColumn = new Element("column");
-			fourthColumn.setAttribute(new Attribute("name", "Time"));
-			fourthColumn.setAttribute(new Attribute("label", "TIME"));
-			fourthColumn.setAttribute(new Attribute("datatype", "integer"));
-			fourthColumn.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(fourthColumn);
+			Element Column4 = new Element("column");
+			Column4.setAttribute(new Attribute("name", "StartTime"));
+			Column4.setAttribute(new Attribute("label", "Start Time"));
+			Column4.setAttribute(new Attribute("datatype", "time"));
+			Column4.setAttribute(new Attribute("editable", "true"));
+			metadata.addContent(Column4);
 
-			Element fifthColumn = new Element("column");
-			fifthColumn.setAttribute(new Attribute("name", "Description"));
-			fifthColumn.setAttribute(new Attribute("label", "DESCRIPTION"));
-			fifthColumn.setAttribute(new Attribute("datatype", "string"));
-			fifthColumn.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(fifthColumn);
+			Element Column5 = new Element("column");
+			Column5.setAttribute(new Attribute("name", "Time"));
+			Column5.setAttribute(new Attribute("label", "Time"));
+			Column5.setAttribute(new Attribute("datatype", "integer"));
+			Column5.setAttribute(new Attribute("editable", "true"));
+			metadata.addContent(Column5);
 
-			Element sixthColumn = new Element("column");
-			sixthColumn.setAttribute(new Attribute("name", "Action"));
-			sixthColumn.setAttribute(new Attribute("label", " "));
-			sixthColumn.setAttribute(new Attribute("datatype", "html"));
-			sixthColumn.setAttribute(new Attribute("editable", "false"));
-			metadata.addContent(sixthColumn);
+			Element Column6 = new Element("column");
+			Column6.setAttribute(new Attribute("name", "HappyTime"));
+			Column6.setAttribute(new Attribute("label", "Happy Time"));
+			Column6.setAttribute(new Attribute("datatype", "time"));
+			Column6.setAttribute(new Attribute("editable", "true"));
+			metadata.addContent(Column6);
+
+			Element Column7 = new Element("column");
+			Column7.setAttribute(new Attribute("name", "EndTime"));
+			Column7.setAttribute(new Attribute("label", "End Time"));
+			Column7.setAttribute(new Attribute("datatype", "time"));
+			Column7.setAttribute(new Attribute("editable", "true"));
+			metadata.addContent(Column7);
+
+
+			Element Column8 = new Element("column");
+			Column8.setAttribute(new Attribute("name", "Description"));
+			Column8.setAttribute(new Attribute("label", "Description"));
+			Column8.setAttribute(new Attribute("datatype", "string"));
+			Column8.setAttribute(new Attribute("editable", "true"));
+			metadata.addContent(Column8);
+
+			Element Column9 = new Element("column");
+			Column9.setAttribute(new Attribute("name", "Action"));
+			Column9.setAttribute(new Attribute("label", "Action"));
+			Column9.setAttribute(new Attribute("datatype", "html"));
+			Column9.setAttribute(new Attribute("editable", "false"));
+			metadata.addContent(Column9);
 
 			doc.getRootElement().addContent(metadata);
 
@@ -93,24 +115,39 @@ public class WriteXMLFile {
 
 				Element rowColumn3 = new Element("column");
 				rowColumn3.setAttribute(new Attribute("name", "Deadline"));
-				rowColumn3.addContent(new DateConversion().dateToString(task
+				rowColumn3.addContent( DateAndTimeConversionUtil.getInstance().dateToString(task
 						.getDeadline()));
 				row.addContent(rowColumn3);
 
 				Element rowColumn4 = new Element("column");
-				rowColumn4.setAttribute(new Attribute("name", "Time"));
-				rowColumn4.addContent(Integer.toString(task.getTime()));
+				rowColumn4.setAttribute(new Attribute("name", "StartTime"));
+				rowColumn4.addContent(DateAndTimeConversionUtil.getInstance().timeTwelveHourToString(task.getStartTime()));
 				row.addContent(rowColumn4);
 
 				Element rowColumn5 = new Element("column");
-				rowColumn5.setAttribute(new Attribute("name", "Description"));
-				rowColumn5.addContent(task.getDescription());
+				rowColumn5.setAttribute(new Attribute("name", "Time"));
+				rowColumn5.addContent(Integer.toString(task.getTime()));
 				row.addContent(rowColumn5);
 
 				Element rowColumn6 = new Element("column");
-				rowColumn6.setAttribute(new Attribute("name", "Action"));
-				// rowColumn6.addContent();
+				rowColumn6.setAttribute(new Attribute("name", "HappyTime"));
+				rowColumn6.addContent(DateAndTimeConversionUtil.getInstance().timeTwelveHourToString(task.getHappyTime()));
 				row.addContent(rowColumn6);
+
+				Element rowColumn7 = new Element("column");
+				rowColumn7.setAttribute(new Attribute("name", "EndTime"));
+				rowColumn7.addContent(DateAndTimeConversionUtil.getInstance().timeTwelveHourToString(task.getEndTime()));
+				row.addContent(rowColumn7);
+
+				Element rowColumn8 = new Element("column");
+				rowColumn8.setAttribute(new Attribute("name", "Description"));
+				rowColumn8.addContent(task.getDescription());
+				row.addContent(rowColumn8);
+
+				Element rowColumn9 = new Element("column");
+				rowColumn9.setAttribute(new Attribute("name", "Action"));
+				// rowColumn6.addContent();
+				row.addContent(rowColumn9);
 
 				data.addContent(row);
 

@@ -4,7 +4,34 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DateConversion {
+import org.joda.time.DateTime;
+import org.joda.time.LocalTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
+public class DateAndTimeConversionUtil {
+
+	private static DateAndTimeConversionUtil instance;
+
+	private DateAndTimeConversionUtil() {
+
+	}
+
+	public static DateAndTimeConversionUtil getInstance() {
+
+		if (instance == null) {
+			instance = new DateAndTimeConversionUtil();
+		}
+
+		return instance;
+
+	}
+
+	public String timeTwelveHourToString(LocalTime localTime) {
+		DateTimeFormatter parser1 = DateTimeFormat.forPattern("H:mm aa");
+        return parser1.print(localTime);
+	}
+
 	public String dateToString(Date date) {
 		// TODO Auto-generated method stub
 		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");

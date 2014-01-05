@@ -4,14 +4,7 @@
 <html>
 <head>
 
-<link href="<c:url value="/resources/css/jquery.datepick.css" />" rel="stylesheet">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="<c:url value="/resources/js/jquery.datepick.js" />"></script>
-<script type="text/javascript">
 
-	$(function() { $('#deadline').datepick(); });
-
-</script>
 
 <style>
 .error {
@@ -92,11 +85,32 @@
 					<td><form:errors path="deadline" cssClass="error" /></td>
 				</tr>
 				<tr>
+					<td>Start Time :</td>
+					<td><form:input path="startTime"></form:input></td>
+					<td></td>
+					<td></td>
+					<td><form:errors path="startTime" cssClass="error" /></td>
+				</tr>
+				<tr>
 					<td>Time Requirement:</td>
-					<td><form:input path="time"></form:input></td>
+					<td><form:input path="time" value=""></form:input></td>
 					<td></td>
 					<td></td>
 					<td><form:errors path="time" cssClass="error" /></td>
+				</tr>
+				<tr>
+					<td>Happy Time :</td>
+					<td><form:input path="happyTime"></form:input></td>
+					<td></td>
+					<td></td>
+					<td><form:errors path="happyTime" cssClass="error" /></td>
+				</tr>
+				<tr>
+					<td>End Time :</td>
+					<td><form:input path="endTime"></form:input></td>
+					<td></td>
+					<td></td>
+					<td><form:errors path="endTime" cssClass="error" /></td>
 				</tr>
 				<tr>
 					<td>Category :</td>
@@ -132,3 +146,50 @@
 
 
 </html>
+
+<link href="<c:url value="/resources/css/jquery.datepick.css" />" rel="stylesheet">
+<script src="<c:url value="/resources/js/jquery.datepick.js" />"></script>
+
+<!-- time picker -->
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/themes/redmond/jquery-ui.css" />
+
+<!-- time picker Plugin files below -->
+<link href="<c:url value="/resources/css/ptTimeSelect/jquery.ptTimeSelect.css" />" rel="stylesheet">
+<script src="<c:url value="/resources/js/ptTimeSelect/jquery.ptTimeSelect.js" />"></script>
+
+<script type="text/javascript">
+
+	$(document).ready((function() { $('#deadline').datepick(); }));
+
+	// time picker
+    $(document).ready(function(){ $('#startTime, #happyTime, #endTime').ptTimeSelect(); });
+
+
+	// time calculation
+	$(document).ready(function(){
+		  $("#time").blur(function(){
+			  if (($('#startTime').val() != '') && ($('#time').val() != '')){
+
+					startTime = $('#startTime').val();
+					time = $('#time').val();
+
+					var piece = startTime.split(/[\:\s]/);
+
+				    var mins = piece[0]*60 + +piece[1] + parseInt(time);
+					var hour = mins%(24*60)/60 | 0;
+					var minute = $.adjustDigits(mins%60);
+
+					var str ="";
+					if (hour>=13){ hour = hour -12; str= hour+":" +minute+" " +"PM"; }
+					if (hour<12){  str= hour.toString()+":"+ minute.toString()+" AM"; alert("22");}
+					if(hour>=12 && hour < 13) {str=hour+":" +minute+" " + "PM";}
+					$('#endTime').val(str);
+			  }
+			});
+
+			$.adjustDigits=function (J){ return (J<10? '0':'') + J; };
+});
+
+
+
+</script>

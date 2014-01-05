@@ -269,7 +269,10 @@ EditableGrid.prototype.onloadHTML = function(tableId)
 	    { name: "Name", datatype: "string", editable: true },
 	    { name: "Category", datatype: "string", editable: true },
 	    { name: "Deadline", datatype: "date", editable: true },
+	    { name: "StartTime", datatype: "time", editable: true },
 	    { name: "Time", datatype: "integer", editable: true, bar: false },
+	    { name: "HappyTime", datatype: "time", editable: true },
+	    { name: "EndTime", datatype: "time", editable: true },
 	    { name: "Description", datatype: "string", editable: true },
 		/*To delete and duplicate function*/
 		{ name: "Action", datatype: "html", editable: false }
@@ -317,7 +320,7 @@ copyTask = function(rowIndex){
 		// the data match meta-data
 		data: {	id: editableGrid.getRowId(rowIndex)},
 		success: function subFunction (response) {
-			
+
 			// reset old value if failed
 			//if (response != "ok") editableGrid.setValueAt(rowIndex, columnIndex, oldValue);
 			// here you could also highlight the updated row to give the user some feedback
@@ -334,7 +337,7 @@ copyTask = function(rowIndex){
 			alert(XMLHttpRequest.responseText);
 		}
 	});
-	
+
 	alert("returnvalue is faster than the ajax call, but next one finally return the correct value" + returnValue); // this is faster print;
 	return returnValue;
 };

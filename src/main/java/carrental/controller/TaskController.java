@@ -26,7 +26,7 @@ import carrental.dao.jdbc.impl.TaskDaoImpl;
 import carrental.exceptions.DaoException;
 import carrental.model.Category;
 import carrental.model.Task;
-import carrental.util.DateConversion;
+import carrental.util.DateAndTimeConversionUtil;
 import carrental.util.WriteXMLFile;
 import carrental.validator.TaskValidator;
 
@@ -43,7 +43,7 @@ public class TaskController {
 
 	@InitBinder
 	public void initBinder(WebDataBinder webDataBinder) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		dateFormat.setLenient(false);
 		webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(
 				dateFormat, true));
@@ -55,8 +55,8 @@ public class TaskController {
 
 		taskValidator.validate(task, bindingResult);
 
-		System.out.println(task.getCategory().getName());
-		System.out.println(task.getName());
+		System.out.println(task.getStartTime());
+		System.out.println(task.getEndTime());
 
 		if (bindingResult.hasErrors()) {
 			// if validator failed
@@ -130,7 +130,7 @@ public class TaskController {
 			if ("Name".equals(colname)) {
 				task.setName(colname);
 			} else if ("Deadline".equals(colname)) {
-				Date date = new DateConversion().editableGridStringToDate(newvalue);
+				Date date = new DateAndTimeConversionUtil().editableGridStringToDate(newvalue);
 				task.setDeadline(date);
 			} else if ("Time".equals(colname)) {
 				int value = Integer.parseInt(newvalue);

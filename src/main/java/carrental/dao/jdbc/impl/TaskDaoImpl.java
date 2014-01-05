@@ -5,8 +5,11 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.joda.time.LocalTime;
 
 import carrental.constants.DbConstants;
 import carrental.dao.CategoryDao;
@@ -52,8 +55,11 @@ public class TaskDaoImpl extends BaseDaoJdbcImpl implements TaskDao {
 			pst.setInt(2, category.getId());
 			pst.setString(3, task.getName());
 			pst.setDate(4, new Date(task.getDeadline().getTime()));
-			pst.setInt(5, task.getTime());
-			pst.setString(6, task.getDescription());
+			pst.setTime(5, new Time(task.getStartTime().toDateTimeToday().getMillis()));
+			pst.setInt(6, task.getTime());
+			pst.setTime(7, new Time(task.getHappyTime().toDateTimeToday().getMillis()));
+			pst.setTime(8, new Time(task.getEndTime().toDateTimeToday().getMillis()));
+			pst.setString(9, task.getDescription());
 
 			pst.executeUpdate();
 			ResultSet generatedKeys = pst.getGeneratedKeys();
@@ -101,6 +107,9 @@ public class TaskDaoImpl extends BaseDaoJdbcImpl implements TaskDao {
 
 				task.setDeadline(rs.getDate("Deadline"));
 				task.setTime(rs.getInt("Time"));
+				task.setStartTime(new LocalTime(rs.getTime("Start_Time").getTime()));
+				task.setHappyTime(new LocalTime(rs.getTime("Happy_Time").getTime()));
+				task.setEndTime(new LocalTime(rs.getTime("End_Time").getTime()));
 				task.setDescription(rs.getString("Description"));
 
 				taskList.add(task);
@@ -173,8 +182,11 @@ public class TaskDaoImpl extends BaseDaoJdbcImpl implements TaskDao {
 			pst.setInt(2, task.getCategory().getId());
 			pst.setInt(3, task.getTime());
 			pst.setDate(4, new Date(task.getDeadline().getTime()));
-			pst.setString(5, task.getDescription());
-			pst.setInt(6, task.getId());
+			pst.setTime(5,new Time(task.getStartTime().toDateTimeToday().getMillis()));
+			pst.setTime(6, new Time(task.getHappyTime().toDateTimeToday().getMillis()));
+			pst.setTime(7, new Time(task.getEndTime().toDateTimeToday().getMillis()));
+			pst.setString(8, task.getDescription());
+			pst.setInt(9, task.getId());
 
 			pst.executeUpdate();
 			System.out.println("Data added");
@@ -211,6 +223,10 @@ public class TaskDaoImpl extends BaseDaoJdbcImpl implements TaskDao {
 				CategoryDao dao = new CategoryDaoImpl();
 				category = dao.findById(category);
 				task.setCategory(category);
+
+				task.setStartTime(new LocalTime(rs.getTime("Start_Time").getTime()));
+				task.setHappyTime(new LocalTime(rs.getTime("Happy_Time").getTime()));
+				task.setEndTime(new LocalTime(rs.getTime("End_Time").getTime()));
 
 				task.setDeadline(rs.getDate("Deadline"));
 				task.setTime(rs.getInt("Time"));
