@@ -156,8 +156,6 @@ EditableGrid.prototype.initializeGrid = function()
 		//C1 add a new ajax call to delete task when click the delete button
 		// *****************************************************************************************8888888888 the rowId is worong!!!!!!!!!!!!!!!!!!
 		removeTask = function (deleteCell) {
-			alert(deleteCell);
-
 
 			$.ajax({
 				url: "http://localhost:8080/car-rental/task.htm?deleteTask=true",
@@ -284,6 +282,7 @@ EditableGrid.prototype.onloadHTML = function(tableId)
 	this.initializeGrid();
 };
 
+
 EditableGrid.prototype.duplicate = function(rowIndex)
 {
 	// copy values from given row
@@ -291,34 +290,14 @@ EditableGrid.prototype.duplicate = function(rowIndex)
 	values['name'] = values['name'] + ' (copy)';
 
 	// get id for new row (max id + 1)
-	var newRowId = 0;
-	for (var r = 0; r < this.getRowCount(); r++) newRowId = Math.max(newRowId, parseInt(this.getRowId(r)) + 1);
+	var generateRowId = 0;
 
 	// add new row
+	generateRowId= copyTask(rowIndex);
 
-	$.ajax({
-		url: "http://localhost:8080/car-rental/task.htm?copyTask=true",
-		type: 'POST',
-		dataType: "json",
-		// the data match meta-data
-		data: {	id: editableGrid.getRowId(rowIndex)},
-		success: function (response) {
-			// reset old value if failed
-			//if (response != "ok") editableGrid.setValueAt(rowIndex, columnIndex, oldValue);
-			// here you could also highlight the updated row to give the user some feedback
-			$.each(response, function(key, task) {
-				alert(task.Task_Id);
-				newRowId=task.Task_Id;
+	alert("result"+generateRowId);
+	this.insertAfter(rowIndex, generateRowId, values);
 
-			});
-		},
-		error: function(XMLHttpRequest, textStatus, exception) {
-			alert(XMLHttpRequest.responseText);
-		}
-	});
-
-	this.insertAfter(rowIndex, newRowId, values);
-	alert(newRowId);
 /*	thought that I should change the id.
  *
  * alert("rowIndex");
@@ -328,6 +307,38 @@ EditableGrid.prototype.duplicate = function(rowIndex)
 
 
 };
+
+copyTask = function(rowIndex){
+	var returnValue=0;
+	$.ajax({
+		url: "http://localhost:8080/car-rental/task.htm?copyTask=true",
+		type: 'POST',
+		dataType: "json",
+		// the data match meta-data
+		data: {	id: editableGrid.getRowId(rowIndex)},
+		success: function subFunction (response) {
+			
+			// reset old value if failed
+			//if (response != "ok") editableGrid.setValueAt(rowIndex, columnIndex, oldValue);
+			// here you could also highlight the updated row to give the user some feedback
+			$.each(response, function(key, task) {
+				alert("new");
+				alert(task.Task_Id);
+				var newkey=parseInt(task.Task_Id);
+				alert(newkey);
+				returnValue=newkey;
+			});
+
+		},
+		error: function(XMLHttpRequest, textStatus, exception) {
+			alert(XMLHttpRequest.responseText);
+		}
+	});
+	
+	alert("returnvalue is faster than the ajax call, but next one finally return the correct value" + returnValue); // this is faster print;
+	return returnValue;
+};
+
 
 
 /*

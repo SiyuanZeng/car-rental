@@ -203,7 +203,7 @@ public class TaskController {
 			System.out.println(task);
 			int Task_Id = taskDao.addTask(task);
 
-			System.out.println("copy complete");
+			System.out.println("copy complete"+Task_Id);
 			String json = " [{ \"Task_Id\":\""+Task_Id+"\"}]";
 			return json;
 		} catch (DaoException e) {
