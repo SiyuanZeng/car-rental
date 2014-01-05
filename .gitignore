@@ -27,7 +27,7 @@
 # Ignore target at the top level
 /logs/
 # Ignore child project's targets as well
-/*/log/
+/*/logs/
 # And any grandchildren ...
 /*/*/logs/
 # Or you can do:
@@ -53,14 +53,10 @@ Thumbs.db
 ######################
 # Ignore target at the top level
 /target/
-/log/
 # Ignore child project's targets as well
 /*/target/
-/*/log/
 # And any grandchildren ...
 /*/*/target/
-/*/*/log/
 # Or you can do:
 target/
-log/
 # which matches 'target' in any sub folder

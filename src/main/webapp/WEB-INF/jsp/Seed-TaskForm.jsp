@@ -93,7 +93,7 @@
 				</tr>
 				<tr>
 					<td>Time Requirement:</td>
-					<td><form:input path="time" value=""></form:input></td>
+					<td><form:input path="time"></form:input></td>
 					<td></td>
 					<td></td>
 					<td><form:errors path="time" cssClass="error" /></td>

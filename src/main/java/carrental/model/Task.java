@@ -11,7 +11,7 @@ public class Task {
 	private Category category;
 	private Date deadline;
 	private LocalTime startTime;
-	private int time;
+	private Integer time;
 	private LocalTime happyTime;
 	private LocalTime endTime;
 	private String description;
@@ -49,7 +49,7 @@ public class Task {
 		this.deadline = deadline;
 	}
 
-	public int getTime() {
+	public Integer getTime() {
 		return time;
 	}
 
