@@ -26,6 +26,8 @@
 ######################
 # Ignore target at the top level
 /logs/
+/logs/*
+/logs/*.*
 # Ignore child project's targets as well
 /*/logs/
 # And any grandchildren ...
