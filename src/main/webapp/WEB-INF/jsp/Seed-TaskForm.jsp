@@ -42,6 +42,9 @@
 #submitButton,#cancelButton {
 	margin-top: 25px;
 }
+
+
+
 </style>
 
 <title>Seed - Add a task</title>
@@ -63,6 +66,10 @@
 			%>
 			Username :
 			<%=user%></h3>
+
+		<div id="clock">
+			<%@include  file="Clock/Clock.html" %>
+		</div>
 
 		<%@include  file="EditableGrid/EditableGrid.html" %>
 		<form:form id="taskForm" method="POST" name="task" commandName="task">

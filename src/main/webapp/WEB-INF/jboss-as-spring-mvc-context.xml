@@ -8,6 +8,7 @@
 
 	<context:component-scan base-package="carrental.mvc" />
 	<context:component-scan base-package="carrental.controller" />
+	<!--Alternative of <bean name="/welcomeModelAndView.htm" class="carrental.controller.HelloWorldController" />  -->
 
 	<mvc:annotation-driven />
 
@@ -25,16 +26,6 @@
 
 
 
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
-
-	<mvc:resources mapping="/static/**" location="/" />
-
-	<mvc:default-servlet-handler />
-
 
 	<!-- AUTOWIRED -->
 	<bean
@@ -42,6 +33,9 @@
 
 
 		<!--mytheme -->
-	<mvc:resources mapping="/resources/**" location="/resources/mytheme/" />
+
+
+
+	<bean name="/welcomeModelAndView.htm" class="carrental.controller.HelloWorldController" />
 
 </beans>

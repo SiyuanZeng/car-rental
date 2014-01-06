@@ -19,7 +19,12 @@
 		<li><a href="vehicleRental.htm">Vehicle Rental Controller</a></li>
 		<li><a href="vehicleRentalReport.htm">Vehicle Rental Report	Controller</a></li>
 		<li><a href="normalhour.htm">Welcome Controller</a></li>
+		<li><a href="welcomeModelAndView.htm">Model And View Example</a></li>
+		<li><a href="welcomeResponsive.htm">Responsive Design</a></li>
+
 		<li><a href="task.htm">Add a task</a></li>
+
+
 		<a href="<c:url value="/j_spring_security_logout" />"> Logout</a>
 	</ul>
 </body>

@@ -130,7 +130,7 @@ public class TaskController {
 			if ("Name".equals(colname)) {
 				task.setName(colname);
 			} else if ("Deadline".equals(colname)) {
-				Date date = new DateAndTimeConversionUtil().editableGridStringToDate(newvalue);
+				Date date = DateAndTimeConversionUtil.getInstance().editableGridStringToDate(newvalue);
 				task.setDeadline(date);
 			} else if ("Time".equals(colname)) {
 				int value = Integer.parseInt(newvalue);

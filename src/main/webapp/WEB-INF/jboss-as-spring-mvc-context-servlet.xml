@@ -20,17 +20,16 @@
 
 	<!--END Validator -->
 
+	<mvc:resources mapping="/static/**" location="/WEB-INF/static/"/>
+	<mvc:resources mapping="/resources/**" location="/resources/mytheme/" />
+	<mvc:default-servlet-handler />
+
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
-	<mvc:resources mapping="/static/**" location="/" />
-
-	<mvc:default-servlet-handler />
-
 
 
 
