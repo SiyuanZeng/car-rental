@@ -8,7 +8,6 @@ import java.util.List;
 
 import carrental.constants.DbConstants;
 import carrental.dao.GetCategoryDao;
-import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
 import carrental.model.Vehicle;
 
@@ -42,14 +41,7 @@ public class GetCategoryDaoJdbcImpl extends BaseDaoJdbcImpl implements
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(), e);
 		} finally {
-			try {
-				closeStatement(st);
-				closeResultSet(rs);
-				closeConnection(con);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			close(con, null, st, rs);
 		}
 		return vehicle;
 	}

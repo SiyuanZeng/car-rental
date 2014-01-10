@@ -22,7 +22,7 @@ public class CalendarConversionUtil {
 	}
 
 	public String getCurrentCalendarDate() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("ddd yyyy MMM dd HH:mm:ss");
 		Calendar calendar = new GregorianCalendar(2013, 0, 31);
 		String dateString = sdf.format(calendar.getTime());
 		return dateString;

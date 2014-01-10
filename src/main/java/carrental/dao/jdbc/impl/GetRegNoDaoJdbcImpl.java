@@ -40,14 +40,7 @@ public class GetRegNoDaoJdbcImpl extends BaseDaoJdbcImpl implements GetRegNoDao 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				closePreparedStatement(pst);
-				closeResultSet(rs);
-				closeConnection(con);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			close(con, pst, null, rs);
 		}
 		return vehicle;
 	}

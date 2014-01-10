@@ -10,90 +10,114 @@ import org.jdom.Element;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
+import carrental.dao.TaskDao;
+import carrental.dao.jdbc.impl.TaskDaoImpl;
+import carrental.exceptions.DaoException;
 import carrental.model.Task;
+import carrental.model.TaskReviewStatus;
 
 public class WriteXMLFile {
-	public void createXml(List<Task> tasklist) {
 
+/*    { name: "Name", datatype: "string", editable: true },
+    { name: "10 minutes", datatype: "string", editable: true },
+    { name: "s1", datatype: "boolean", editable: true },
+    { name: "24 hours", datatype: "string", editable: true },
+    { name: "s2", datatype: "boolean", editable: true },
+    { name: "1 week", datatype: "string", editable: true },
+    { name: "s3", datatype: "boolean", editable: true },
+    { name: "1 month", datatype: "string", editable: true },
+    { name: "s4", datatype: "boolean", editable: true },
+    { name: "2 month", datatype: "string", editable: true },
+    { name: "s5", datatype: "boolean", editable: true },*/
+
+
+	DateAndTimeConversionUtil ConversionUtil = DateAndTimeConversionUtil.getInstance();
+
+	public void createReviewTaskXml(List<Task> tasklist){
 		try {
-
-			/*
-			 * private String name; private Category category; private Date
-			 * deadline; private int time; private String description; private
-			 * List<Task> subtasks;
-			 */
-
 			Element table = new Element("table");
 			Document doc = new Document(table);
 			doc.setRootElement(table);
 
-			// <metadata>
-			// <column name='firstname' label='FIRSTNAME' datatype='string'
-			// editable='true'></column>
 			Element metadata = new Element("metadata");
-			Element Column1 = new Element("column");
-			Column1.setAttribute(new Attribute("name", "Name"));
-			Column1.setAttribute(new Attribute("label", "Name"));
-			Column1.setAttribute(new Attribute("datatype", "string"));
-			Column1.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(Column1);
 
-			Element Column2 = new Element("column");
-			Column2.setAttribute(new Attribute("name", "Category"));
-			Column2.setAttribute(new Attribute("label", "Category"));
-			Column2.setAttribute(new Attribute("datatype", "string"));
-			Column2.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(Column2);
+			addMetaColumn(metadata,"Name","Name","string","true");
+			addMetaColumn(metadata,"10 minutes","10 minutes","string","true");
+			addMetaColumn(metadata,"S1","S1","boolean","true");
+			addMetaColumn(metadata,"24 hours","24 hours","string","true");
+			addMetaColumn(metadata,"S2","S2","boolean","true");
+			addMetaColumn(metadata,"1 week","1 week","string","true");
+			addMetaColumn(metadata,"S3","S3","boolean","true");
+			addMetaColumn(metadata,"1 month","1 month","string","true");
+			addMetaColumn(metadata,"S4","S4","boolean","true");
+			addMetaColumn(metadata,"2 month","2 month","string","true");
+			addMetaColumn(metadata,"S5","S5","boolean","true");
 
-			Element Column3 = new Element("column");
-			Column3.setAttribute(new Attribute("name", "Deadline"));
-			Column3.setAttribute(new Attribute("label", "Deadline"));
-			Column3.setAttribute(new Attribute("datatype", "date"));
-			Column3.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(Column3);
+			doc.getRootElement().addContent(metadata);
+			Element data = new Element("data");
+			TaskDao dao = new TaskDaoImpl();
 
-			Element Column4 = new Element("column");
-			Column4.setAttribute(new Attribute("name", "StartTime"));
-			Column4.setAttribute(new Attribute("label", "Start Time"));
-			Column4.setAttribute(new Attribute("datatype", "time"));
-			Column4.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(Column4);
+			for (Task task : tasklist) {
+				TaskReviewStatus trs=null;
+				try {
+					trs = dao.getTaskReviewStatus(task);
+				} catch (DaoException e) {
+					e.printStackTrace();
+				}
 
-			Element Column5 = new Element("column");
-			Column5.setAttribute(new Attribute("name", "Time"));
-			Column5.setAttribute(new Attribute("label", "Time"));
-			Column5.setAttribute(new Attribute("datatype", "integer"));
-			Column5.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(Column5);
+				Element row = new Element("row");
+				row.setAttribute(new Attribute("id", Integer.toString(task.getId())));
 
-			Element Column6 = new Element("column");
-			Column6.setAttribute(new Attribute("name", "HappyTime"));
-			Column6.setAttribute(new Attribute("label", "Happy Time"));
-			Column6.setAttribute(new Attribute("datatype", "time"));
-			Column6.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(Column6);
+				addDataColumn(row, "Name", task.getName());
+				addDataColumn(row, "10 minutes", (ConversionUtil.timeTwelveHourToString(task.getEndTime().plusMinutes(10))));
+				addReviewStatusColumn(row, "S1", trs.getTenMinutes());
+				addDataColumn(row, "24 hours", (ConversionUtil.dateToString(ConversionUtil.datePlusDays(task.getDeadline(),1)))+", \n"+ConversionUtil.timeTwelveHourToString(task.getEndTime()));
+				addReviewStatusColumn(row, "S2", trs.getTwenntyFourHours());
+				addDataColumn(row, "1 week",(ConversionUtil.dateToString(ConversionUtil.datePlusDays(task.getDeadline(),7)))+", \n"+ConversionUtil.timeTwelveHourToString(task.getEndTime()));
+				addReviewStatusColumn(row, "S3", trs.getOneWeek());
+				addDataColumn(row, "1 month",(ConversionUtil.dateToString(ConversionUtil.datePlusMonth(task.getDeadline(),1))+", \n"+ConversionUtil.timeTwelveHourToString(task.getEndTime())));
+				addReviewStatusColumn(row, "S4", trs.getOneMonth());
+				addDataColumn(row, "2 month",(ConversionUtil.dateToString(ConversionUtil.datePlusMonth(task.getDeadline(),2))+", \n"+ConversionUtil.timeTwelveHourToString(task.getEndTime())));
+				addReviewStatusColumn(row, "S5", trs.getTwoMonth());
 
-			Element Column7 = new Element("column");
-			Column7.setAttribute(new Attribute("name", "EndTime"));
-			Column7.setAttribute(new Attribute("label", "End Time"));
-			Column7.setAttribute(new Attribute("datatype", "time"));
-			Column7.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(Column7);
+				data.addContent(row);
+			}
+			doc.getRootElement().addContent(data);
+
+			// new XMLOutputter().output(doc, System.out);
+			XMLOutputter xmlOutput = new XMLOutputter();
+
+			// display nice nice
+			xmlOutput.setFormat(Format.getPrettyFormat());
+			xmlOutput .output(doc, new FileWriter( "C:\\Users\\SiyuanZeng\\WebProject\\car-rental\\src\\main\\webapp\\resources\\mytheme\\datasource\\reviewTaskGrid.xml"));
+
+			System.out.println("Review File Saved!");
+		} catch (IOException io) {
+			System.out.println(io.getMessage());
+		}
+
+	}
 
 
-			Element Column8 = new Element("column");
-			Column8.setAttribute(new Attribute("name", "Description"));
-			Column8.setAttribute(new Attribute("label", "Description"));
-			Column8.setAttribute(new Attribute("datatype", "string"));
-			Column8.setAttribute(new Attribute("editable", "true"));
-			metadata.addContent(Column8);
 
-			Element Column9 = new Element("column");
-			Column9.setAttribute(new Attribute("name", "Action"));
-			Column9.setAttribute(new Attribute("label", "Action"));
-			Column9.setAttribute(new Attribute("datatype", "html"));
-			Column9.setAttribute(new Attribute("editable", "false"));
-			metadata.addContent(Column9);
+
+	public void createAddTaskXml(List<Task> tasklist) {
+
+		try {
+			Element table = new Element("table");
+			Document doc = new Document(table);
+			doc.setRootElement(table);
+
+			Element metadata = new Element("metadata");
+			addMetaColumn(metadata,"Name","Name","string","true");
+			addMetaColumn(metadata,"Category","Category","string","true");
+			addMetaColumn(metadata,"Deadline","Deadline","date","true");
+			addMetaColumn(metadata,"StartTime","Start Time","time","true");
+			addMetaColumn(metadata,"Time","Time","integer","true");
+			addMetaColumn(metadata,"HappyTime","Happy Time","time","true");
+			addMetaColumn(metadata,"EndTime","End Time","time","true");
+			addMetaColumn(metadata,"Description","Description","string","true");
+			addMetaColumn(metadata,"Action","Action","html","false");
 
 			doc.getRootElement().addContent(metadata);
 
@@ -103,70 +127,57 @@ public class WriteXMLFile {
 				Element row = new Element("row");
 				row.setAttribute(new Attribute("id", Integer.toString(task.getId())));
 
-				Element rowColumn1 = new Element("column");
-				rowColumn1.setAttribute(new Attribute("name", "Name"));
-				rowColumn1.addContent(task.getName());
-				row.addContent(rowColumn1);
-
-				Element rowColumn2 = new Element("column");
-				rowColumn2.setAttribute(new Attribute("name", "Category"));
-				rowColumn2.addContent(task.getCategory().getName());
-				row.addContent(rowColumn2);
-
-				Element rowColumn3 = new Element("column");
-				rowColumn3.setAttribute(new Attribute("name", "Deadline"));
-				rowColumn3.addContent( DateAndTimeConversionUtil.getInstance().dateToString(task
-						.getDeadline()));
-				row.addContent(rowColumn3);
-
-				Element rowColumn4 = new Element("column");
-				rowColumn4.setAttribute(new Attribute("name", "StartTime"));
-				rowColumn4.addContent(DateAndTimeConversionUtil.getInstance().timeTwelveHourToString(task.getStartTime()));
-				row.addContent(rowColumn4);
-
-				Element rowColumn5 = new Element("column");
-				rowColumn5.setAttribute(new Attribute("name", "Time"));
-				rowColumn5.addContent(Integer.toString(task.getTime()));
-				row.addContent(rowColumn5);
-
-				Element rowColumn6 = new Element("column");
-				rowColumn6.setAttribute(new Attribute("name", "HappyTime"));
-				rowColumn6.addContent(DateAndTimeConversionUtil.getInstance().timeTwelveHourToString(task.getHappyTime()));
-				row.addContent(rowColumn6);
-
-				Element rowColumn7 = new Element("column");
-				rowColumn7.setAttribute(new Attribute("name", "EndTime"));
-				rowColumn7.addContent(DateAndTimeConversionUtil.getInstance().timeTwelveHourToString(task.getEndTime()));
-				row.addContent(rowColumn7);
-
-				Element rowColumn8 = new Element("column");
-				rowColumn8.setAttribute(new Attribute("name", "Description"));
-				rowColumn8.addContent(task.getDescription());
-				row.addContent(rowColumn8);
-
-				Element rowColumn9 = new Element("column");
-				rowColumn9.setAttribute(new Attribute("name", "Action"));
-				// rowColumn6.addContent();
-				row.addContent(rowColumn9);
+				addDataColumn(row, "Name", task.getName());
+				addDataColumn(row, "Category", task.getCategory().getName());
+				addDataColumn(row, "Deadline", ConversionUtil.dateToString(task.getDeadline()));
+				addDataColumn(row, "StartTime", ConversionUtil.timeTwelveHourToString(task.getStartTime()));
+				addDataColumn(row, "Time", Integer.toString(task.getTime()));
+				addDataColumn(row, "HappyTime",ConversionUtil.timeTwelveHourToString(task.getHappyTime()));
+				addDataColumn(row, "EndTime",ConversionUtil.timeTwelveHourToString(task.getEndTime()));
+				addDataColumn(row, "Description",task.getDescription());
+				addDataColumn(row, "Action","");
 
 				data.addContent(row);
 
 			}
 			doc.getRootElement().addContent(data);
 
-			// new XMLOutputter().output(doc, System.out);
 			XMLOutputter xmlOutput = new XMLOutputter();
 
-			// display nice nice
 			xmlOutput.setFormat(Format.getPrettyFormat());
-			xmlOutput
-					.output(doc,
-							new FileWriter(
-									"C:\\Users\\SiyuanZeng\\WebProject\\car-rental\\src\\main\\webapp\\resources\\mytheme\\datasource\\taskGrid.xml"));
+			xmlOutput .output(doc, new FileWriter( "C:\\Users\\SiyuanZeng\\WebProject\\car-rental\\src\\main\\webapp\\resources\\mytheme\\datasource\\taskGrid.xml"));
 
 			System.out.println("File Saved!");
 		} catch (IOException io) {
 			System.out.println(io.getMessage());
 		}
 	}
+
+
+
+	private void addReviewStatusColumn(Element row, String columnName, int status) {
+		Element rowColumn3 = new Element("column");
+		rowColumn3.setAttribute(new Attribute("name", columnName));
+		if (status==1) { rowColumn3.addContent(""); }
+		else if (status==2) { rowColumn3.addContent("1"); }
+		row.addContent(rowColumn3);
+	}
+
+	private void addDataColumn(Element row, String columnName, String content) {
+		Element rowColumn1 = new Element("column");
+		rowColumn1.setAttribute(new Attribute("name", columnName));
+		rowColumn1.addContent(content);
+		row.addContent(rowColumn1);
+	}
+
+	private void addMetaColumn(Element metadata,String attr,String lable, String datatype, String editable) {
+		Element Column1 = new Element("column");
+		Column1.setAttribute(new Attribute("name", attr));
+		Column1.setAttribute(new Attribute("label", lable));
+		Column1.setAttribute(new Attribute("datatype", datatype));
+		Column1.setAttribute(new Attribute("editable", editable));
+		metadata.addContent(Column1);
+	}
+
+
 }

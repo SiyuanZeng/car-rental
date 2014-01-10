@@ -1,7 +1,6 @@
 package carrental.model;
 
 import java.util.Date;
-import java.util.List;
 
 import org.joda.time.LocalTime;
 
@@ -53,7 +52,7 @@ public class Task {
 		return time;
 	}
 
-	public void setTime(int time) {
+	public void setTime(Integer time) {
 		this.time = time;
 	}
 

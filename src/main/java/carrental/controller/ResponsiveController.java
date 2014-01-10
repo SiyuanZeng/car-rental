@@ -11,10 +11,7 @@ public class ResponsiveController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String initForm(ModelMap model) {
-		System.out.println("responsive");
 
 		return "redirect:/static/WelcomeResponsive.html";
 	}
-
-
 }

@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 
 import carrental.constants.DbConstants;
 import carrental.dao.AddVehicleRentalDao;
-import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
 import carrental.model.VehicleRental;
 
@@ -41,14 +40,7 @@ public class AddVehicleRentalDaoJdbcImpl extends BaseDaoJdbcImpl implements
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(), e);
 		} finally {
-			try {
-				closePreparedStatement(pst);
-				closeResultSet(rs);
-				closeConnection(con);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			close(con, pst, null, rs);
 		}
 	}
 }

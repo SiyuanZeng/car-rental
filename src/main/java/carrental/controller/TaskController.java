@@ -1,19 +1,14 @@
 package carrental.controller;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import javax.servlet.ServletException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,41 +21,34 @@ import carrental.dao.jdbc.impl.TaskDaoImpl;
 import carrental.exceptions.DaoException;
 import carrental.model.Category;
 import carrental.model.Task;
+import carrental.model.TaskReviewStatus;
 import carrental.util.DateAndTimeConversionUtil;
-import carrental.util.WriteXMLFile;
 import carrental.validator.TaskValidator;
 
 @Controller
-@RequestMapping("/task.htm")
-public class TaskController {
+public class TaskController extends SeedController {
+	private static final String UPDATE_TASK = "updateTask=true";
+	private static final String COPY_TASK = "copyTask";
+	private static final String DELETE_TASK = "deleteTask=true";
+	private static final String ADD_TASK = "/task.htm";
+	private static final String REVIEW_TASK = "/reviewTask.htm";;
+
 	TaskValidator taskValidator;
-	private boolean resulttrue;
 
 	@Autowired
 	public TaskController(TaskValidator taskValidator) {
 		this.taskValidator = taskValidator;
 	}
 
-	@InitBinder
-	public void initBinder(WebDataBinder webDataBinder) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-		dateFormat.setLenient(false);
-		webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(
-				dateFormat, true));
-	}
-
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = ADD_TASK, method = RequestMethod.POST)
 	public String processSubmit(@ModelAttribute("task") Task task,
 			BindingResult bindingResult, SessionStatus status, ModelMap model) {
+		System.out.println("test time" + task.getTime());
 
 		taskValidator.validate(task, bindingResult);
 
-		System.out.println(task.getStartTime());
-		System.out.println(task.getEndTime());
-
 		if (bindingResult.hasErrors()) {
-			// if validator failed
-			return "Seed-TaskForm";
+			return "Responsive/Responsive-AddTasks";
 		} else {
 			TaskDao taskDao = new TaskDaoImpl();
 			try {
@@ -69,41 +57,25 @@ public class TaskController {
 				e.printStackTrace();
 			}
 			status.setComplete();
-			// form success
 			initForm(model);
-			return "Seed-TaskForm";
+			return "Responsive/Responsive-AddTasks";
 		}
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = ADD_TASK, method = RequestMethod.GET)
 	public String initForm(ModelMap model) {
-		Task task = new Task();
-		task.setCategory(new Category());// nested object.
-		model.addAttribute("task", task);
-		List<Task> tasklist = null;
-		try {
-			TaskDao dao = new TaskDaoImpl();
-			tasklist = dao.getAllTasks();
-		} catch (DaoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		WriteXMLFile xml = new WriteXMLFile();
-		xml.createXml(tasklist);
-
-		return "Seed-TaskForm";
+		initAddTaskForm(model);
+		return "Responsive/Responsive-AddTasks";
 	}
 
-	/*
-	 * id: editableGrid.getRowId(rowIndex), column: columnIndex, tablename : *
-	 * editableGrid.name, newvalue: editableGrid.getColumnType(columnIndex) == *
-	 * "boolean" ? (newValue ? 1 : 0) : newValue, colname: *
-	 * editableGrid.getColumnName(columnIndex), coltype: *
-	 * editableGrid.getColumnType(columnIndex)
-	 */
+	@RequestMapping(value = REVIEW_TASK, method = RequestMethod.GET)
+	public String initReviewTask(ModelMap model) {
+		initReviewTaskForm(model);
 
-	@RequestMapping(params ="updateTask=true", method = RequestMethod.POST)
+		return "Responsive/Responsive-ReviewTasks";
+	}
+
+	@RequestMapping(value = ADD_TASK, params = UPDATE_TASK, method = RequestMethod.POST)
 	@ResponseBody
 	public String updateTask(@RequestParam("id") String id,
 			@RequestParam("newvalue") String newvalue,
@@ -111,26 +83,19 @@ public class TaskController {
 			@RequestParam("coltype") String coltype) throws ServletException,
 			IOException {
 
-		System.out.println("update task");
-		System.out.println(id);
-		System.out.println(newvalue);
-		System.out.println(colname);
-		System.out.println(coltype);
-
-
 		try {
 			// get the task from db by id.
 			Task task = new Task();
 			task.setId(Integer.parseInt(id));
 			TaskDao taskDao = new TaskDaoImpl();
 			task = taskDao.getTaskById(task);
-			System.out.println(task);
 
-		// set the updated variable
+			// set the updated variable
 			if ("Name".equals(colname)) {
 				task.setName(colname);
 			} else if ("Deadline".equals(colname)) {
-				Date date = DateAndTimeConversionUtil.getInstance().editableGridStringToDate(newvalue);
+				Date date = DateAndTimeConversionUtil.getInstance()
+						.editableGridStringToDate(newvalue);
 				task.setDeadline(date);
 			} else if ("Time".equals(colname)) {
 				int value = Integer.parseInt(newvalue);
@@ -142,30 +107,19 @@ public class TaskController {
 				task.setCategory(category);
 			}
 
-		/*
-		 * case "boolean": if (newvalue.equals("1")) { boolean resulttrue =
-		 * true; } if (newvalue.equals("1")) { boolean resultfalse = false; }
-		 * break;
-		 */
-
-				taskDao.updateTask(task);
-				System.out.println("update complete");
-				String json = "{\"employees\": [{ \"firstName\":\"Peter\" }]}";
-				return json;
-			} catch (DaoException e) {
-				e.printStackTrace();
-			}
-
-			return null;
+			taskDao.updateTask(task);
+			String json = "{\"employees\": [{ \"firstName\":\"Peter\" }]}";
+			return json;
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	@RequestMapping(params = "deleteTask=true", method = RequestMethod.POST)
+	@RequestMapping(value = ADD_TASK, params = DELETE_TASK, method = RequestMethod.POST)
 	@ResponseBody
-	public String deleteTask(@RequestParam("deleteRow") String deleteRow) throws ServletException,
-			IOException {
-
-		System.out.println("delete task");
-		System.out.println(deleteRow);
+	public String deleteTask(@RequestParam("deleteRow") String deleteRow)
+			throws ServletException, IOException {
 
 		try {
 			// get the task from db by id.
@@ -173,26 +127,20 @@ public class TaskController {
 			task.setId(Integer.parseInt(deleteRow));
 			TaskDao taskDao = new TaskDaoImpl();
 			task = taskDao.getTaskById(task);
-			System.out.println(task);
 
 			taskDao.deleteTaskById(task);
-			System.out.println("Delete complete");
 			String json = "{\"employees\": [{ \"firstName\":\"Peter\" }]}";
 			return json;
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}
-
 		return null;
 	}
 
-	@RequestMapping(params = "copyTask", method = RequestMethod.POST)
+	@RequestMapping(value = ADD_TASK, params = COPY_TASK, method = RequestMethod.POST)
 	@ResponseBody
-	public String copyTask(@RequestParam("id") String id) throws ServletException,
-	IOException {
-
-		System.out.println("copy task");
-		System.out.println(id);
+	public String copyTask(@RequestParam("id") String id)
+			throws ServletException, IOException {
 
 		try {
 			// get the task from db by id.
@@ -200,11 +148,9 @@ public class TaskController {
 			task.setId(Integer.parseInt(id));
 			TaskDao taskDao = new TaskDaoImpl();
 			task = taskDao.getTaskById(task);
-			System.out.println(task);
 			int Task_Id = taskDao.addTask(task);
 
-			System.out.println("copy complete"+Task_Id);
-			String json = " [{ \"Task_Id\":\""+Task_Id+"\"}]";
+			String json = " [{ \"Task_Id\":\"" + Task_Id + "\"}]";
 			return json;
 		} catch (DaoException e) {
 			e.printStackTrace();
@@ -213,5 +159,49 @@ public class TaskController {
 		return null;
 	}
 
+	@RequestMapping(value = REVIEW_TASK, params = UPDATE_TASK, method = RequestMethod.POST)
+	@ResponseBody
+	public String updateTaskReviewStatus(@RequestParam("id") String id,
+			@RequestParam("newvalue") String newvalue,
+			@RequestParam("colname") String colname,
+			@RequestParam("coltype") String coltype) throws ServletException,
+			IOException {
+		System.out.println(newvalue);
+		System.out.println(id);
+		System.out.println(colname);
+		System.out.println(coltype);
+
+		try {
+			Task task = new Task();
+			task.setId(Integer.parseInt(id));
+			TaskDao taskDao = new TaskDaoImpl();
+			TaskReviewStatus trs = taskDao.getTaskReviewStatus(task);
+			int updatedValue = Integer.parseInt(newvalue)==0?1:2;
+			System.out.println("updatedValue:   "+updatedValue);
+
+			// set the updated variable
+			if ("boolean".equals(coltype)) {
+				if ("S1".equals(colname)) {
+					trs.setTenMinutes(updatedValue);
+					System.out.println("updated value is in 10 minutes");
+				} else if ("S2".equals(colname)) {
+					trs.setTwenntyFourHours(updatedValue);
+				} else if ("S3".equals(colname)) {
+					trs.setOneWeek(updatedValue);
+				} else if ("S4".equals(colname)) {
+					trs.setOneMonth(updatedValue);
+				} else if ("S5".equals(colname)) {
+					trs.setTwoMonth(updatedValue);
+				}
+			}
+
+			taskDao.updateTaskReviewStatus(trs);
+			String json = "{\"employees\": [{ \"firstName\":\"Peter\" }]}";
+			return json;
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

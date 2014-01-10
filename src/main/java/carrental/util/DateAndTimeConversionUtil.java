@@ -2,9 +2,9 @@ package carrental.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
-import org.joda.time.DateTime;
 import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -34,7 +34,7 @@ public class DateAndTimeConversionUtil {
 
 	public String dateToString(Date date) {
 		// TODO Auto-generated method stub
-		SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("E dd MMM yyyy");
 		String dateString = sdf.format(date);
 		return dateString;
 
@@ -55,11 +55,28 @@ public class DateAndTimeConversionUtil {
 	}
 
 	public Date getCurrentDate() {
-		SimpleDateFormat dateFormat = new SimpleDateFormat(
-				"yyyy/MM/dd HH:mm:ss");
+		SimpleDateFormat dateFormat = new SimpleDateFormat( "yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		System.out.println(dateFormat.format(date)); // 2013/10/15 16:16:39
 		return date;
+	}
+
+	public Date datePlusDays(Date date, int days) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.DAY_OF_MONTH, days);
+		Date newDate = cal.getTime();
+
+		return newDate;
+	}
+
+	public Date datePlusMonth(Date date, int month) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		cal.add(Calendar.MONTH, month);
+		Date newDate = cal.getTime();
+
+		return newDate;
 	}
 
 }

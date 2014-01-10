@@ -9,7 +9,6 @@ import java.util.List;
 
 import carrental.constants.DbConstants;
 import carrental.dao.CategoryDao;
-import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
 import carrental.model.Category;
 
@@ -42,14 +41,7 @@ public class CategoryDaoImpl extends BaseDaoJdbcImpl implements CategoryDao {
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(), e);
 		} finally {
-			try {
-				closePreparedStatement(pst);
-				closeResultSet(rs);
-				closeConnection(con);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			close(con, pst, null, rs);
 		}
 		return categoryList;
 	}
@@ -78,14 +70,7 @@ public class CategoryDaoImpl extends BaseDaoJdbcImpl implements CategoryDao {
 			throw new DaoException(e.getMessage(), e);
 
 		} finally {
-			try {
-				closePreparedStatement(pst);
-				closeResultSet(rs);
-				closeConnection(con);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			close(con, pst, null, rs);
 		}
 		return 0;
 	}
@@ -107,14 +92,7 @@ public class CategoryDaoImpl extends BaseDaoJdbcImpl implements CategoryDao {
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(), e);
 		} finally {
-			try {
-				closePreparedStatement(pst);
-				closeResultSet(rs);
-				closeConnection(con);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			close(con, pst, null, rs);
 		}
 		return category;
 	}
@@ -135,14 +113,7 @@ public class CategoryDaoImpl extends BaseDaoJdbcImpl implements CategoryDao {
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(), e);
 		} finally {
-			try {
-				closePreparedStatement(pst);
-				closeResultSet(rs);
-				closeConnection(con);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			close(con, pst, null, rs);
 		}
 		return category;
 	}

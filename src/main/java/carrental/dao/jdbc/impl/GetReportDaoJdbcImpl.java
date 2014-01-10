@@ -8,7 +8,6 @@ import java.util.List;
 
 import carrental.constants.DbConstants;
 import carrental.dao.GetReportDao;
-import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
 import carrental.model.ReportEntry;
 
@@ -45,14 +44,7 @@ public class GetReportDaoJdbcImpl extends BaseDaoJdbcImpl implements
 			e.printStackTrace();
 			throw new DaoException(e.getMessage(), e);
 		} finally {
-			try {
-				closeStatement(st);
-				closeResultSet(rs);
-				closeConnection(con);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			close(con, null, st, rs);
 		}
 		return reportList;
 	}

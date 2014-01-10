@@ -71,7 +71,7 @@
 			<%@include  file="Clock/Clock.html" %>
 		</div>
 
-		<%@include  file="EditableGrid/EditableGrid.html" %>
+		<%@include  file="EditableGrid/EditableGrid_addTask.html" %>
 		<form:form id="taskForm" method="POST" name="task" commandName="task">
 
 			<form:errors path="*" cssClass="errorblock" element="div" />
@@ -138,8 +138,7 @@
 				<tr>
 					<td></td>
 					<td><input id="submitButton" type="submit" value="Save"></input></td>
-					<td><input id="cancelButton" type="button" value="Cancel"
-						onclick="javascript:window.location='welcome'" /></td>
+					<td><input id="cancelButton" type="button" value="Cancel" onclick="javascript:window.location='welcome'" /></td>
 					<td></td>
 				</tr>
 			</table>
@@ -177,8 +176,8 @@
 		  $("#time").blur(function(){
 			  if (($('#startTime').val() != '') && ($('#time').val() != '')){
 
-					startTime = $('#startTime').val();
-					time = $('#time').val();
+					var startTime = $('#startTime').val();
+					var time = $('#time').val();
 
 					var piece = startTime.split(/[\:\s]/);
 
@@ -188,7 +187,7 @@
 
 					var str ="";
 					if (hour>=13){ hour = hour -12; str= hour+":" +minute+" " +"PM"; }
-					if (hour<12){  str= hour.toString()+":"+ minute.toString()+" AM"; alert("22");}
+					if (hour<12){  str= hour.toString()+":"+ minute.toString()+" AM";}
 					if(hour>=12 && hour < 13) {str=hour+":" +minute+" " + "PM";}
 					$('#endTime').val(str);
 			  }

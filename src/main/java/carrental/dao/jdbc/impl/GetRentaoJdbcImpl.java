@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 
 import carrental.constants.DbConstants;
 import carrental.dao.GetRentDao;
-import carrental.exceptions.ApplicationException;
 import carrental.exceptions.DaoException;
 
 /**
@@ -43,14 +42,7 @@ public class GetRentaoJdbcImpl extends BaseDaoJdbcImpl implements GetRentDao {
 			throw new DaoException(e.getMessage(), e);
 
 		} finally {
-			try {
-				closePreparedStatement(pst);
-				closeResultSet(rs);
-				closeConnection(con);
-			} catch (ApplicationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			close(con, pst, null, rs);
 		}
 	}
 

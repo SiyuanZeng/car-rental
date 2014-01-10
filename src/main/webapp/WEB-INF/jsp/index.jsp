@@ -23,6 +23,7 @@
 		<li><a href="welcomeResponsive.htm">Responsive Design</a></li>
 
 		<li><a href="task.htm">Add a task</a></li>
+		<li><a href="reviewTask.htm">Review tasks</a></li>
 
 
 		<a href="<c:url value="/j_spring_security_logout" />"> Logout</a>

@@ -89,4 +89,16 @@ public class BaseDaoJdbcImpl implements BaseDao  {
 		}
 	}
 
+	public void close(Connection con, PreparedStatement pst, Statement st,ResultSet rs){
+		try {
+			closeConnection(con);
+			closePreparedStatement(pst);
+			closeStatement(st);
+			closeResultSet(rs);
+		} catch (Exception e) {
+			new DaoException(e).getMessage();
+		}
+	}
+
+
 }
