@@ -67,9 +67,6 @@
 			Username :
 			<%=user%></h3>
 
-		<div id="clock">
-			<%@include  file="Clock/Clock.html" %>
-		</div>
 
 		<%@include  file="EditableGrid/EditableGrid_addTask.html" %>
 		<form:form id="taskForm" method="POST" name="task" commandName="task">

@@ -66,9 +66,8 @@
 			%>
 			Username :
 			<%=user%></h3>
-		<div id="clock">
-			<%@include  file="Clock/Clock.html" %>
-		</div>
+
+
 		<%@include  file="EditableGrid/EditableGrid_reviewTask.html" %>
 	</div>
 </body>
