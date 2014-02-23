@@ -1,61 +1,84 @@
 @charset "utf-8";
 /* CSS Document */
 body {
- font-family: Arial, Helvetica, sans-serif;
-/* font-size:100%;*/
- text-align:center;
- margin:0 auto;
-}
-.centerdiv{
-	text-align:center;
-	margin:0 auto;
+	font-family: Arial, Helvetica, sans-serif;
+	/* font-size:100%;*/
+	text-align: center;
+	margin: 0 auto;
 }
 
-.a {text-decoration:underline; cursor:pointer;}
-
-#alarmGroup{
-display:none;
+.centerdiv {
+	text-align: center;
+	margin: 0 auto;
+	width: 400px;
 }
 
-#standardFormat{
-display:none;
+@media ( min-width : 47em) {
+	.centerdiv {
+		text-align: center;
+		margin: 0 auto;
+		width: 525px;
+	}
+	.form-container {
+		text-align: left;
+		width: 400px;
+		position: relative;
+		font-family: Verdana;
+		font-size: 80%;
+		font-weight: bold;
+		padding: 10px;
+		margin-left:60px;
+		background-color: #333333;
+		border: 3px solid #cccccc;
+	}
+}
+
+.a {
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 .form-container {
-  text-align: left;
-  width:400px;
-  position:relative;
-  font-family:Verdana;
-  font-size:80%;
-  font-weight:bold;
-  padding:10px;
-  background-color:#333333;
-  border:3px solid #cccccc;
+	text-align: left;
+	width: 350px;
+	position: relative;
+	font-family: Verdana;
+	font-size: 80%;
+	font-weight: bold;
+	padding: 10px;
+
+	background-color: #333333;
+	border: 3px solid #cccccc;
 }
 
-.precentageLocation{
- position:relative;
- top:-25px;
- left:10px;
+#alarmGroup {
+	display: none;
 }
 
-#clockFrame{
+#standardFormat {
+	display: none;
+}
+
+.precentageLocation {
+	position: relative;
+	top: -25px;
+	left: 10px;
+}
+
+#clockFrame {
 	margin-bottom: 50px;
-
 }
 
-#clock{
- font-size: 8.5em; /*8.5*/
- font-family: Verdana, Geneva, sans-serif;
- color: #FFFFFF;
- text-align: center;
- font-weight: bold;
- padding: 0em;
- font-smooth: always;
+#clock {
+	font-size: 8.5em; /*8.5*/
+	font-family: Verdana, Geneva, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+	font-weight: bold;
+	padding: 0em;
+	font-smooth: always;
 }
 
-#jQueryAlarm{
+#jQueryAlarm {
 	margin-top: 30px;
-
 }
-

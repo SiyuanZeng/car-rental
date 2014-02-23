@@ -14,7 +14,7 @@
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames"
-			value="carrental/properties/Customer, carrental/properties/Vehicle, carrental/properties/VehicleRental, carrental/properties/Login" />
+			value="carrental/property, carrental/properties/Customer, carrental/properties/Vehicle, carrental/properties/VehicleRental, carrental/properties/Login" />
 	</bean>
 
 
@@ -30,7 +30,6 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
 
 
 

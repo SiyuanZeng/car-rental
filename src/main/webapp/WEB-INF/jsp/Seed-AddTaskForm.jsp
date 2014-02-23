@@ -27,13 +27,6 @@
 	text-align: center;
 }
 
-#taskForm {
-	padding: 20px;
-	width: 500px;
-	display: block;
-	background: #FAFAFA;
-	margin: 0 auto;
-}
 
 #description {
 	width: 155px;
@@ -54,7 +47,7 @@
 <body>
 	<div id="content">
 		<!-- start of page content -->
-		<h1>Create a Task</h1>
+
 		<h3>
 			<%
 				//allow access only if session exists
@@ -65,7 +58,9 @@
 					user = (String) session.getAttribute("user");
 			%>
 			Username :
-			<%=user%></h3>
+			<%=user%>
+
+		</h3>
 
 
 		<%@include  file="EditableGrid/EditableGrid_addTask.html" %>

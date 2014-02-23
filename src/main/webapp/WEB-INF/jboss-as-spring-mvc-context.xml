@@ -23,6 +23,7 @@
 	<bean class="carrental.validator.VehicleValidator" />
 	<bean class="carrental.validator.VehicleRentalValidator" />
 	<bean class="carrental.validator.TaskValidator" />
+	<bean class="carrental.validator.VocabularyValidator" />
 
 
 

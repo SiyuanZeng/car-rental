@@ -128,7 +128,7 @@ public class WriteXMLFile {
 				row.setAttribute(new Attribute("id", Integer.toString(task.getId())));
 
 				addDataColumn(row, "Name", task.getName());
-				addDataColumn(row, "Category", task.getCategory().getName());
+				addDataColumn(row, "Category", task.getTaskCategory().getName());
 				addDataColumn(row, "Deadline", ConversionUtil.dateToString(task.getDeadline()));
 				addDataColumn(row, "StartTime", ConversionUtil.timeTwelveHourToString(task.getStartTime()));
 				addDataColumn(row, "Time", Integer.toString(task.getTime()));

@@ -156,6 +156,7 @@ EditableGrid.prototype.initializeGrid = function()
 		//C1 add a new ajax call to delete task when click the delete button
 		// *****************************************************************************************8888888888 the rowId is worong!!!!!!!!!!!!!!!!!!
 		removeTask = function (deleteCell) {
+			alert("deleteCell  "+deleteCell);
 
 			$.ajax({
 				url: "http://localhost:8080/car-rental/task.htm?deleteTask=true",
@@ -298,8 +299,8 @@ EditableGrid.prototype.duplicate = function(rowIndex)
 	// add new row
 	generateRowId= copyTask(rowIndex);
 
-	alert("result"+generateRowId);
 	this.insertAfter(rowIndex, generateRowId, values);
+	alert("check result"+generateRowId);
 
 /*	thought that I should change the id.
  *
@@ -326,8 +327,8 @@ copyTask = function(rowIndex){
 			// here you could also highlight the updated row to give the user some feedback
 			$.each(response, function(key, task) {
 				alert("new");
-				alert(task.Task_Id);
-				var newkey=parseInt(task.Task_Id);
+				alert(task.taskId);
+				var newkey=parseInt(task.taskId);
 				alert(newkey);
 				returnValue=newkey;
 			});

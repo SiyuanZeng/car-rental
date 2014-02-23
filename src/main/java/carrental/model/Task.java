@@ -4,10 +4,8 @@ import java.util.Date;
 
 import org.joda.time.LocalTime;
 
-public class Task {
-	private int id;
-	private String name;
-	private Category category;
+public class Task extends WorkItem {
+	private TaskCategory category;
 	private Date deadline;
 	private LocalTime startTime;
 	private Integer time;
@@ -16,27 +14,11 @@ public class Task {
 	private String description;
 
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Category getCategory() {
+	public TaskCategory getTaskCategory() {
 		return category;
 	}
 
-	public void setCategory(Category category) {
+	public void setTaskCategory(TaskCategory category) {
 		this.category = category;
 	}
 

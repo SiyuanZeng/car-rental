@@ -5,6 +5,8 @@
 <html>
 <head>
 <title>Login Page</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+	<script src="<c:url value="/resources/js/Watermark/jquery.watermark.js" />" ></script>
 <style>
 .errorblock {
 	color: #ff0000;
@@ -13,6 +15,12 @@
 	padding: 8px;
 	margin: 16px;
 }
+
+/*this is auto applied  */
+.watermark {
+    color: #999999 !important;
+}
+
 </style>
 </head>
 <body onload='document.f.j_username.focus();'>
@@ -54,11 +62,11 @@
 		<table>
 			<tr>
 				<td><i18N:message key="user" /></td>
-				<td><input type='text' name='j_username' value=''></td>
+				<td><input type='text' id='username' name='j_username' value=''></td>
 			</tr>
 			<tr>
 				<td><i18N:message key="password" /></td>
-				<td><input type='password' name='j_password' /></td>
+				<td><input type='password' id='password' name='j_password' /></td>
 			</tr>
 			<tr>
 				<td><input name="submit" type="submit"
@@ -71,5 +79,14 @@
 
 	</form>
 	</center>
+
+<script type="text/javascript">
+	$(function () {
+		$("#username").watermark("User Name",{useNative:false});/*this is optional, can be true, then it will always be there.  */
+		$("#password").watermark("Password", {useNative: false});
+	});
+
+</script>
+
 </body>
 </html>

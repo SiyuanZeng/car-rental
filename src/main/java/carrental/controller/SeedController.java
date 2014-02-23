@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import carrental.dao.TaskDao;
 import carrental.dao.jdbc.impl.TaskDaoImpl;
 import carrental.exceptions.DaoException;
-import carrental.model.Category;
 import carrental.model.Task;
+import carrental.model.TaskCategory;
 import carrental.util.WriteXMLFile;
 
 @Controller
@@ -31,7 +31,7 @@ public class SeedController {
 
 	public void initAddTaskForm(ModelMap model){
 		Task task = new Task();
-		task.setCategory(new Category());// nested object.
+		task.setTaskCategory(new TaskCategory());// nested object.
 		model.addAttribute("task", task);
 		List<Task> tasklist = null;
 		try {
@@ -48,7 +48,7 @@ public class SeedController {
 
 	public void initReviewTaskForm(ModelMap model){
 		Task task = new Task();
-		task.setCategory(new Category());
+		task.setTaskCategory(new TaskCategory());
 		model.addAttribute("task", task);
 		List<Task> tasklist = null;
 

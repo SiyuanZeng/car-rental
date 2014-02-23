@@ -19,9 +19,10 @@ import org.springframework.web.bind.support.SessionStatus;
 import carrental.dao.TaskDao;
 import carrental.dao.jdbc.impl.TaskDaoImpl;
 import carrental.exceptions.DaoException;
-import carrental.model.Category;
 import carrental.model.Task;
+import carrental.model.TaskCategory;
 import carrental.model.TaskReviewStatus;
+import carrental.model.WorkItem;
 import carrental.util.DateAndTimeConversionUtil;
 import carrental.validator.TaskValidator;
 
@@ -103,8 +104,8 @@ public class TaskController extends SeedController {
 			} else if ("Description".equals(colname)) {
 				task.setDescription(newvalue);
 			} else if ("Category".equals(colname)) {
-				Category category = new Category(newvalue);
-				task.setCategory(category);
+				TaskCategory category = new TaskCategory(newvalue);
+				task.setTaskCategory(category);
 			}
 
 			taskDao.updateTask(task);
@@ -123,6 +124,7 @@ public class TaskController extends SeedController {
 
 		try {
 			// get the task from db by id.
+			System.out.println("deleteRow"+deleteRow);
 			Task task = new Task();
 			task.setId(Integer.parseInt(deleteRow));
 			TaskDao taskDao = new TaskDaoImpl();
@@ -148,9 +150,10 @@ public class TaskController extends SeedController {
 			task.setId(Integer.parseInt(id));
 			TaskDao taskDao = new TaskDaoImpl();
 			task = taskDao.getTaskById(task);
-			int Task_Id = taskDao.addTask(task);
+			int taskId = taskDao.addTask(task);
 
-			String json = " [{ \"Task_Id\":\"" + Task_Id + "\"}]";
+			String json = " [{ \"taskId\":\"" + taskId + "\"}]";
+			System.out.println("return json");
 			return json;
 		} catch (DaoException e) {
 			e.printStackTrace();
@@ -172,7 +175,7 @@ public class TaskController extends SeedController {
 		System.out.println(coltype);
 
 		try {
-			Task task = new Task();
+			WorkItem task = new Task();
 			task.setId(Integer.parseInt(id));
 			TaskDao taskDao = new TaskDaoImpl();
 			TaskReviewStatus trs = taskDao.getTaskReviewStatus(task);

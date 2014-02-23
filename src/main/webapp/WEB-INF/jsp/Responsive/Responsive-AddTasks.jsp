@@ -31,6 +31,10 @@
     </div><!-- navigation -->
   </header><!-- header -->
 
+
+
+
+
   <div id="jQueryAlarm">
 	<%@include  file="../jQueryAlarm/jQueryAlarm.html" %>
   </div>
@@ -56,7 +60,7 @@
 
  <!--  // alarm -->
   		<script src="<c:url value="/resources/jQueryAlarm/js/jquery.colorpicker.js" />" ></script>
-		<script src="<c:url value="/resources/jQueryAlarm/js/jquery-1.3.2.min.js" />" ></script>
+		<%-- <script src="<c:url value="/resources/jQueryAlarm/js/jquery-1.3.2.min.js" />" ></script> --%>
 		<script src="<c:url value="/resources/jQueryAlarm/js/jquery.jplayer.js" />" ></script>
 		<script src="<c:url value="/resources/jQueryAlarm/js/jquery-ui-1.7.2.custom.min.js" />" ></script>
 		<link rel="stylesheet" href="<c:url value="/resources/jQueryAlarm/css/dark-hive/jquery-ui-1.7.2.custom.css" />" type="text/css" media="screen">
